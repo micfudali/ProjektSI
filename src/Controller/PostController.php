@@ -1,61 +1,61 @@
 <?php
 /**
- * Task controller.
+ * Post controller.
  */
 
 namespace App\Controller;
 
-use App\Entity\Task;
-use App\Repository\TaskRepository;
+use App\Entity\Post;
+use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class TaskController.
+ * Class PostController.
  */
-#[Route('/task')]
-class TaskController extends AbstractController
+#[Route('/post')]
+class PostController extends AbstractController
 {
     /**
      * Index action.
      *
-     * @param TaskRepository $taskRepository Task repository
+     * @param PostRepository $postRepository Post repository
      *
      * @return Response HTTP response
      */
     #[Route(
-        name: 'task_index',
+        name: 'post_index',
         methods: 'GET'
     )]
-    public function index(TaskRepository $taskRepository): Response
+    public function index(PostRepository $postRepository): Response
     {
-        $tasks = $taskRepository->findAll();
+        $posts = $postRepository->findAll();
 
         return $this->render(
-            'task/index.html.twig',
-            ['tasks' => $tasks]
+            'post/index.html.twig',
+            ['posts' => $posts]
         );
     }
 
     /**
      * Show action.
      *
-     * @param Task $task Task entity
+     * @param Post $post Post entity
      *
      * @return Response HTTP response
      */
     #[Route(
         '/{id}',
-        name: 'task_show',
+        name: 'post_show',
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET',
     )]
-    public function show(Task $task): Response
+    public function show(Post $post): Response
     {
         return $this->render(
-            'task/show.html.twig',
-            ['task' => $task]
+            'post/show.html.twig',
+            ['post' => $post]
         );
     }
 }
