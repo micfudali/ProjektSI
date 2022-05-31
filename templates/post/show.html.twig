@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'post title | Blog'|trans({'%id%': post.id|default('')}) }}
+    {{ 'Post | Blog'|trans({'%id%': post.id|default('')}) }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'post.post_details'|trans({'%id%': post.id|default('')}) }}</h1>
+    <h1>{{ 'Post Details'|trans({'%id%': post.id|default('')}) }}</h1>
     {% if post is defined and post|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'id'|trans }}</dt>
@@ -14,6 +14,8 @@
             <dd>{{ post.createdAt|format_date('long') }}</dd>
             <dt>{{ 'Title'|trans }}</dt>
             <dd>{{  post.title }}</dd>
+            <dt>{{ 'Category'|trans }}</dt>
+            <dd>{{  post.category.title }}</dd>
             <dt>{{ 'Contents'|trans }}</dt>
             <dd>{{ post.contents }}</dd>
         </dl>

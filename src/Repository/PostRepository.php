@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @extends ServiceEntityRepository<Post>
@@ -16,6 +17,8 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class PostRepository extends ServiceEntityRepository
 {
+    public const PAGINATOR_ITEMS_PER_PAGE = 3;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Post::class);
@@ -39,28 +42,27 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Post[] Returns an array of Post objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * Query all records.
+     *
+     * @return QueryBuilder Query builder
+     */
+    public function queryAll(): QueryBuilder
+    {
+        return $this->getOrCreateQueryBuilder()
+            ->orderBy('post.createdAt', 'DESC');
+    }
 
-//    public function findOneBySomeField($value): ?Post
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    /**
+     * Get or create new query builder.
+     *
+     * @param QueryBuilder|null $queryBuilder Query builder
+     *
+     * @return QueryBuilder Query builder
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('post');
+    }
+
 }
