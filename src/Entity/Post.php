@@ -8,6 +8,8 @@ namespace App\Entity;
 
 use App\Repository\PostRepository;
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -59,6 +61,14 @@ class Post
     #[ORM\ManyToOne(targetEntity: Category::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
+
+    #[ORM\ManyToMany(targetEntity: Tag::class)]
+    private $tags;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * Getter for id.
@@ -136,14 +146,63 @@ class Post
         return $this;
     }
 
+    /**
+     * Getter for category.
+     *
+     * @return Category|null
+     */
     public function getCategory(): ?Category
     {
         return $this->category;
     }
 
+    /**
+     * Setter for category.
+     *
+     * @param Category|null $category
+     * @return $this
+     */
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Getter for Tags.
+     *
+     * @return Collection<int, Tag>
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Add a Tag.
+     *
+     * @param Tag $tag
+     * @return $this
+     */
+    public function addTag(Tag $tag): self
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags[] = $tag;
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove a tag.
+     *
+     * @param Tag $tag
+     * @return $this
+     */
+    public function removeTag(Tag $tag): self
+    {
+        $this->tags->removeElement($tag);
 
         return $this;
     }

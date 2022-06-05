@@ -6,12 +6,11 @@
 namespace App\Controller;
 
 use App\Entity\Post;
-use App\Repository\PostRepository;
+use App\Service\PostServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * Class PostController.
@@ -20,22 +19,30 @@ use Knp\Component\Pager\PaginatorInterface;
 class PostController extends AbstractController
 {
     /**
+     * Post service.
+     */
+    private PostServiceInterface $postService;
+
+    /**
+     * Constructor.
+     */
+    public function __construct(PostServiceInterface $postService)
+    {
+        $this->postService = $postService;
+    }
+
+    /**
      * Index action.
      *
-     * @param PostRepository $postRepository Post repository
+     * @param Request $request HTTP Request
      *
      * @return Response HTTP response
      */
-    #[Route(
-        name: 'post_index',
-        methods: 'GET'
-    )]
-    public function index(Request $request, PostRepository $postRepository, PaginatorInterface $paginator): Response
+    #[Route(name: 'post_index', methods: 'GET')]
+    public function index(Request $request): Response
     {
-        $pagination = $paginator->paginate(
-            $postRepository->queryAll(),
-            $request->query->getInt('page', 1),
-            PostRepository::PAGINATOR_ITEMS_PER_PAGE
+        $pagination = $this->postService->getPaginatedList(
+            $request->query->getInt('page', 1)
         );
 
         return $this->render('post/index.html.twig', ['pagination' => $pagination]);
@@ -44,7 +51,7 @@ class PostController extends AbstractController
     /**
      * Show action.
      *
-     * @param Post $post Post entity
+     * @param Post $post Post
      *
      * @return Response HTTP response
      */
@@ -52,13 +59,10 @@ class PostController extends AbstractController
         '/{id}',
         name: 'post_show',
         requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET',
+        methods: 'GET'
     )]
     public function show(Post $post): Response
     {
-        return $this->render(
-            'post/show.html.twig',
-            ['post' => $post]
-        );
+        return $this->render('post/show.html.twig', ['post' => $post]);
     }
 }
