@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'Blog'|trans }}
+    {{ 'Posts | Blog'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'Blog'|trans }}</h1>
+    <h1>{{ 'Posts'|trans }}</h1>
     {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center">

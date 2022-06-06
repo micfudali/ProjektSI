@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'Blog'|trans }}
+    {{ 'Categories | Blog'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'Blog'|trans }}</h1>
+    <h1>{{ 'Categories'|trans }}</h1>
     {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center">
@@ -28,6 +28,21 @@
                     <td>
                         <a href="{{ url('category_show', {id: category.id}) }}" title="{{ 'action.show'|trans }}">
                             {{ 'Read more'|trans }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ url('category_create', {id: category.id}) }}" title="{{ 'action.create'|trans }}">
+                            {{ 'Create'|trans }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ url('category_edit', {id: category.id}) }}" title="{{ 'action.edit'|trans }}">
+                            {{ 'Edit'|trans }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action.delete'|trans }}">
+                            {{ 'Delete'|trans }}
                         </a>
                     </td>
                 </tr>

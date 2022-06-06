@@ -154,4 +154,41 @@ class CategoryController extends AbstractController
             ]
         );
     }
+
+    /**
+     * Delete action.
+     *
+     * @param Request  $request  HTTP request
+     * @param Category $category Category entity
+     *
+     * @return Response HTTP response
+     */
+    #[Route('/{id}/delete', name: 'category_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
+    public function delete(Request $request, Category $category): Response
+    {
+        $form = $this->createForm(CategoryType::class, $category, [
+            'method' => 'DELETE',
+            'action' => $this->generateUrl('category_delete', ['id' => $category->getId()]),
+        ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->categoryService->delete($category);
+
+            $this->addFlash(
+                'success',
+                $this->translator->trans('Category deleted successfully.')
+            );
+
+            return $this->redirectToRoute('category_index');
+        }
+
+        return $this->render(
+            'category/delete.html.twig',
+            [
+                'form' => $form->createView(),
+                'category' => $category,
+            ]
+        );
+    }
 }
