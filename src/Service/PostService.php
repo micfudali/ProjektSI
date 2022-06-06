@@ -5,6 +5,7 @@
 
 namespace App\Service;
 
+use App\Entity\Post;
 use App\Repository\PostRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -50,6 +51,20 @@ class PostService implements PostServiceInterface
             $page,
             PostRepository::PAGINATOR_ITEMS_PER_PAGE
         );
+    }
+
+    /**
+     * Save entity.
+     *
+     * @param Post $post Post entity
+     */
+    public function save(Post $post): void
+    {
+        if ($post->getId() == null) {
+            $post->setCreatedAt(new \DateTimeImmutable());
+        }
+
+        $this->postRepository->save($post);
     }
 
     

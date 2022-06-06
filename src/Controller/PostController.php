@@ -7,10 +7,12 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Service\PostServiceInterface;
+use App\Form\Type\PostType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class PostController.
@@ -24,11 +26,22 @@ class PostController extends AbstractController
     private PostServiceInterface $postService;
 
     /**
-     * Constructor.
+     * Translator.
+     *
+     * @var TranslatorInterface
      */
-    public function __construct(PostServiceInterface $postService)
+    private TranslatorInterface $translator;
+
+    /**
+     * Constructor.
+     *
+     * @param PostServiceInterface $postService Post service
+     * @param TranslatorInterface      $translator  Translator
+     */
+    public function __construct(PostServiceInterface $postService, TranslatorInterface $translator)
     {
         $this->postService = $postService;
+        $this->translator = $translator;
     }
 
     /**
@@ -64,5 +77,35 @@ class PostController extends AbstractController
     public function show(Post $post): Response
     {
         return $this->render('post/show.html.twig', ['post' => $post]);
+    }
+
+    /**
+     * Create action.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
+     */
+    #[Route(
+        '/create',
+        name: 'post_create',
+        methods: 'GET|POST',
+    )]
+    public function create(Request $request): Response
+    {
+        $post = new Post();
+        $form = $this->createForm(PostType::class, $post);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->postService->save($post);
+
+            return $this->redirectToRoute('post_index');
+        }
+
+        return $this->render(
+            'post/create.html.twig',
+            ['form' => $form->createView()]
+        );
     }
 }
