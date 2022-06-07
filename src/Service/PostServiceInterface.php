@@ -29,4 +29,11 @@ interface PostServiceInterface
      */
     public function save(Post $post): void;
 
+    /**
+     * Delete post.
+     *
+     * @param Post $post Post entity
+     * @return void
+     */
+    public function delete(Post $post): void;
 }

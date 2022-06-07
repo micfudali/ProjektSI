@@ -108,4 +108,78 @@ class PostController extends AbstractController
             ['form' => $form->createView()]
         );
     }
+
+    /**
+     * Edit action.
+     *
+     * @param Request  $request  HTTP request
+     * @param Post $post Post entity
+     *
+     * @return Response HTTP response
+     */
+    #[Route('/{id}/edit', name: 'post_edit', requirements: ['id' => '[1-9]\d*'], methods: 'GET|PUT')]
+    public function edit(Request $request, Post $post): Response
+    {
+        $form = $this->createForm(PostType::class, $post, [
+            'method' => 'PUT',
+            'action' => $this->generateUrl('post_edit', ['id' => $post->getId()]),
+        ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->postService->save($post);
+
+            $this->addFlash(
+                'success',
+                $this->translator->trans('Post edited successfully.')
+            );
+
+            return $this->redirectToRoute('post_index');
+        }
+
+        return $this->render(
+            'post/edit.html.twig',
+            [
+                'form' => $form->createView(),
+                'post' => $post,
+            ]
+        );
+    }
+
+    /**
+     * Delete action.
+     *
+     * @param Request  $request  HTTP request
+     * @param Post $post Post entity
+     *
+     * @return Response HTTP response
+     */
+    #[Route('/{id}/delete', name: 'post_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
+    public function delete(Request $request, Post $post): Response
+    {
+        $form = $this->createForm(PostType::class, $post, [
+            'method' => 'DELETE',
+            'action' => $this->generateUrl('post_delete', ['id' => $post->getId()]),
+        ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->postService->delete($post);
+
+            $this->addFlash(
+                'success',
+                $this->translator->trans('Post deleted successfully.')
+            );
+
+            return $this->redirectToRoute('post_index');
+        }
+
+        return $this->render(
+            'post/delete.html.twig',
+            [
+                'form' => $form->createView(),
+                'post' => $post,
+            ]
+        );
+    }
 }

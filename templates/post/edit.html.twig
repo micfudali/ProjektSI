@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'Create post | Blog'|trans }}
+    {{ 'Edit post | Blog'|trans({'%id%': post.id|default('')}) }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'Create post'|trans }}</h1>
+    <h1>{{ 'Edit post'|trans({'%id%': post.id|default('')}) }}</h1>
     {{ form_start(form) }}
     {{ form_widget(form) }}
     <div class="form-group row float-sm-right">

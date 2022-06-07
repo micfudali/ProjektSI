@@ -55,7 +55,7 @@ class PostType extends AbstractType
                     'choice_label' => function ($category) : string {
                         return $category->getTitle();
                      },
-                    'label' => 'label.category',
+                    'label' => 'Category',
                     'placeholder' => 'label.none',
                     'required' => true,
                     'expanded' => true,

@@ -67,5 +67,14 @@ class PostService implements PostServiceInterface
         $this->postRepository->save($post);
     }
 
+    /**
+     * Delete entity.
+     *
+     * @param Post $post Post entity
+     */
+    public function delete(Post $post): void
+    {
+        $this->postRepository->delete($post);
+    }
     
 }
