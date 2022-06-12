@@ -1,17 +1,18 @@
 <?php
 /**
- * Task fixtures.
+ * Post fixtures.
  */
 
 namespace App\DataFixtures;
 
 use App\Entity\Category;
 use App\Entity\Post;
+use App\Entity\User;
 use DateTimeImmutable;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 /**
- * Class TaskFixtures.
+ * Class PostFixtures.
  */
 class PostFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
@@ -36,10 +37,13 @@ class PostFixtures extends AbstractBaseFixtures implements DependentFixtureInter
                     $this->faker->dateTimeBetween('-100 days', '-1 days')
                 )
             );
-            $post->setContents($this->faker->text);
             /** @var Category $category */
             $category = $this->getRandomReference('categories');
             $post->setCategory($category);
+
+            /** @var User $author */
+            $author = $this->getRandomReference('users');
+            $post->setAuthor($author);
 
             return $post;
         });
@@ -53,10 +57,10 @@ class PostFixtures extends AbstractBaseFixtures implements DependentFixtureInter
      *
      * @return string[] of dependencies
      *
-     * @psalm-return array{0: CategoryFixtures::class}
+     * @psalm-return array{0: CategoryFixtures::class, 1: UserFixtures::class}
      */
     public function getDependencies(): array
     {
-        return [CategoryFixtures::class];
+        return [CategoryFixtures::class, UserFixtures::class];
     }
 }

@@ -38,14 +38,18 @@
                         </a>
                     </td>
                     <td>
-                        <a href="{{ url('post_edit', {id: post.id}) }}" title="{{ 'action.edit'|trans }}">
-                            {{ 'Edit'|trans }}
-                        </a>
+                        {% if is_granted('EDIT', post) %}
+                            <a class="btn btn-outline-success" href="{{ url('post_edit', {id: post.id}) }}" title="{{ 'action.edit'|trans }}">
+                                {{ 'Edit'|trans }}
+                            </a>
+                        {% endif %}
                     </td>
                     <td>
-                        <a href="{{ url('post_delete', {id: post.id}) }}" title="{{ 'action.delete'|trans }}">
-                            {{ 'Delete'|trans }}
-                        </a>
+                        {% if is_granted('DELETE', post) %}
+                            <a class="btn btn-outline-danger" href="{{ url('post_delete', {id: post.id}) }}" title="{{ 'action.delete'|trans }}">
+                                {{ 'Delete'|trans }}
+                            </a>
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
