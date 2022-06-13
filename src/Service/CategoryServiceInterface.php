@@ -1,6 +1,6 @@
 <?php
 /**
- * Task service interface.
+ * Category service interface.
  */
 
 namespace App\Service;

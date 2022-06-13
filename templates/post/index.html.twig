@@ -8,12 +8,14 @@
     <h1>{{ 'Posts'|trans }}</h1>
     {% if pagination is defined and pagination.items|length %}
 
-        <a href="{{ url('category_index')}}" title="{{ 'action.go_to_categories'|trans }}">
-            {{ 'Go to categories'|trans }}
-        </a>
-        <a href="{{ url('post_create')}}" title="{{ 'action.create'|trans }}">
-            {{ 'Create new post'|trans }}
-        </a>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ url('category_index')}}" title="{{ 'action.go_to_categories'|trans }}">
+                {{ 'Go to categories'|trans }}
+            </a>
+            <a href="{{ url('post_create')}}" title="{{ 'action.create'|trans }}">
+                {{ 'Create new post'|trans }}
+            </a>
+        {% endif %}
 
         <table class="table table-striped">
             <thead>
