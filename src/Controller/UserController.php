@@ -89,12 +89,12 @@ class UserController extends AbstractController
 
             $this->userService->save($user);
 
-            /*
+
             $this->addFlash(
                 'success',
                 $this->translator->trans('User edited successfully.')
             );
-    */
+
 
             return $this->redirectToRoute('post_index');
         }
