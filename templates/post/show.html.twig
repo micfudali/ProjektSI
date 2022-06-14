@@ -19,6 +19,24 @@
             <dt>{{ 'Contents'|trans }}</dt>
             <dd>{{ post.contents }}</dd>
         </dl>
+        <h2>{{ 'Comments section'|trans }}</h2>
+        {% for comment in post.comments %}
+            <dl class="dl-horizontal">
+                <dt>{{ 'Email' }}</dt>
+                <dd>{{ comment.email }}</dd>
+                <dt>{{ 'Nick' }}</dt>
+                <dd>{{ comment.nick }}</dd>
+                <dt>{{ 'Contents' }}</dt>
+                <dd>{{ comment.contents }}</dd>
+                <dt>
+                    {% if is_granted('DELETE', post) %}
+                        <a class="btn btn-outline-danger" href="{{ url('post_delete', {id: post.id}) }}" title="{{ 'action.delete'|trans }}">
+                            {{ 'Delete comment'|trans }}
+                        </a>
+                    {% endif %}
+                </dt>
+            </dl>
+        {% endfor %}
         <p>
             <a class="btn btn-outline-primary" href="{{ url('post_index') }}" title="{{ 'action.back_to_list'|trans }}">
                 {{ 'Back to list'|trans }}
