@@ -40,29 +40,29 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
-//    /**
-//     * Query all records.
-//     *
-//     * @return QueryBuilder Query builder
-//     */
-//    public function queryAll(): QueryBuilder
-//    {
-//        return $this->getOrCreateQueryBuilder()
-//            ->select('partial category.{id, title}')
-//            ->orderBy('category.title', 'DESC');
-//    }
+    /**
+     * Query all records.
+     *
+     * @return QueryBuilder Query builder
+     */
+    public function queryAll(): QueryBuilder
+    {
+        return $this->getOrCreateQueryBuilder()
+            ->select('partial category.{id, title}')
+            ->orderBy('category.title', 'DESC');
+    }
 
-//    /**
-//     * Get or create new query builder.
-//     *
-//     * @param QueryBuilder|null $queryBuilder Query builder
-//     *
-//     * @return QueryBuilder Query builder
-//     */
-//    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-//    {
-//        return $queryBuilder ?? $this->createQueryBuilder('category');
-//    }
+    /**
+     * Get or create new query builder.
+     *
+     * @param QueryBuilder|null $queryBuilder Query builder
+     *
+     * @return QueryBuilder Query builder
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('category');
+    }
 
     /**
      * Save entity.
