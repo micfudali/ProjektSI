@@ -82,4 +82,41 @@ class CommentController extends AbstractController
         );
     }
 
+    /**
+     * Delete action.
+     *
+     * @param Request  $request  HTTP request
+     * @param Comment $comment Comment entity
+     *
+     * @return Response HTTP response
+     */
+    #[Route('/{id}/delete', name: 'comment_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
+    public function delete(Request $request, Comment $comment): Response
+    {
+
+        $form = $this->createForm(CommentType::class, $comment, [
+            'method' => 'DELETE',
+            'action' => $this->generateUrl('comment_delete', ['id' => $comment->getId()]),
+        ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->commentService->delete($comment);
+
+            $this->addFlash(
+                'success',
+                $this->translator->trans('message.deleted_successfully')
+            );
+
+            return $this->redirectToRoute('post_index');
+        }
+
+        return $this->render(
+            'comment/delete.html.twig',
+            [
+                'form' => $form->createView(),
+                'comment' => $comment,
+            ]
+        );
+    }
 }
