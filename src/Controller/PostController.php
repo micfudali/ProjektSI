@@ -7,9 +7,12 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Entity\User;
+use App\Entity\Comment;
 use App\Repository\PostRepository;
 use App\Repository\CommentRepository;
+use App\Form\Type\CommentType;
 use App\Service\PostServiceInterface;
+use App\Service\CommentServiceInterface;
 use App\Form\Type\PostType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,6 +33,11 @@ class PostController extends AbstractController
     private PostServiceInterface $postService;
 
     /**
+     * Comment service.
+     */
+    private CommentServiceInterface $commentService;
+
+    /**
      * Translator.
      *
      * @var TranslatorInterface
@@ -42,10 +50,11 @@ class PostController extends AbstractController
      * @param PostServiceInterface $postService Post service
      * @param TranslatorInterface      $translator  Translator
      */
-    public function __construct(PostServiceInterface $postService, TranslatorInterface $translator)
+    public function __construct(PostServiceInterface $postService, TranslatorInterface $translator, CommentServiceInterface $commentService)
     {
         $this->postService = $postService;
         $this->translator = $translator;
+        $this->commentService = $commentService;
     }
 
     /**
@@ -195,6 +204,37 @@ class PostController extends AbstractController
                 'form' => $form->createView(),
                 'post' => $post,
             ]
+        );
+    }
+    /**
+     * Comment action.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
+     */
+    #[Route('/{id}/comment', name: 'post_comment', methods: 'GET|POST')]
+    public function comment(Request $request, Post $post): Response
+    {
+        $comment = new Comment();
+        $comment->setPost($post);
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->commentService->save($comment);
+
+            $this->addFlash(
+                'success',
+                $this->translator->trans('Comment added successfully.')
+            );
+
+            return $this->redirectToRoute('post_show', ['id' => $post->getId()]);
+        }
+
+        return $this->render(
+            'comment/create.html.twig',
+            ['form' => $form->createView()]
         );
     }
 }

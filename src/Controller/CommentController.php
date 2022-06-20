@@ -8,6 +8,7 @@ namespace App\Controller;
 use App\Entity\Comment;
 use App\Entity\Post;
 use App\Repository\CommentRepository;
+use App\Repository\PostRepository;
 use App\Form\Type\CommentType;
 use App\Service\CommentServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,7 +20,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * Class CommentController.
  */
-#[Route('{post_id}/comment')]
+#[Route('/comment')]
 class CommentController extends AbstractController
 {
     /**
