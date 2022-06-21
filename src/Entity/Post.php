@@ -82,7 +82,7 @@ class Post
      *
      * @var ArrayCollection
      */
-    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comment::class)]
+    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comment::class, cascade: ["remove"])]
     private $comments;
 
     public function __construct()
