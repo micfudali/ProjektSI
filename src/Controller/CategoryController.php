@@ -6,6 +6,7 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Form\Type\DeleteCategoryType;
 use App\Service\CategoryServiceInterface;
 use App\Form\Type\CategoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -169,13 +170,13 @@ class CategoryController extends AbstractController
         if(!$this->categoryService->canBeDeleted($category)) {
             $this->addFlash(
                 'warning',
-                $this->translator->trans('message.category_contains_tasks')
+                $this->translator->trans('Category cannot be deleted because it contains a post.')
             );
 
             return $this->redirectToRoute('category_index');
         }
 
-        $form = $this->createForm(FormType::class, $category, [
+        $form = $this->createForm(DeleteCategoryType::class, $category, [
             'method' => 'DELETE',
             'action' => $this->generateUrl('category_delete', ['id' => $category->getId()]),
         ]);
@@ -186,7 +187,7 @@ class CategoryController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('message.deleted_successfully')
+                $this->translator->trans('Category deleted successfully.')
             );
 
             return $this->redirectToRoute('category_index');

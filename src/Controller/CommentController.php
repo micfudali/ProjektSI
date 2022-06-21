@@ -10,6 +10,7 @@ use App\Entity\Post;
 use App\Repository\CommentRepository;
 use App\Repository\PostRepository;
 use App\Form\Type\CommentType;
+use App\Form\Type\DeleteCommentType;
 use App\Service\CommentServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -94,7 +95,7 @@ class CommentController extends AbstractController
     public function delete(Request $request, Comment $comment): Response
     {
 
-        $form = $this->createForm(CommentType::class, $comment, [
+        $form = $this->createForm(DeleteCommentType::class, $comment, [
             'method' => 'DELETE',
             'action' => $this->generateUrl('comment_delete', ['id' => $comment->getId()]),
         ]);
@@ -105,7 +106,7 @@ class CommentController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('message.deleted_successfully')
+                $this->translator->trans('Comment deleted successfully.')
             );
 
             return $this->redirectToRoute('post_index');

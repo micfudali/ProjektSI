@@ -43,6 +43,11 @@ class Comment
     #[ORM\Column(type: 'text')]
     private $contents;
 
+    /**
+     * Post Id.
+     *
+     * @var post
+     */
     #[ORM\ManyToOne(targetEntity: Post::class, inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
     private $post;

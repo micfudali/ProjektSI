@@ -77,6 +77,11 @@ class Post
     #[Assert\Type(User::class)]
     private ?User $author;
 
+    /**
+     * Comments
+     *
+     * @var ArrayCollection
+     */
     #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comment::class)]
     private $comments;
 
