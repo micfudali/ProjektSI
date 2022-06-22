@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Tag repository.
+ */
+
 namespace App\Repository;
 
 use App\Entity\Tag;
@@ -16,11 +20,22 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class TagRepository extends ServiceEntityRepository
 {
+    /**
+     * Constructor.
+     * @param ManagerRegistry $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Tag::class);
     }
 
+    /**
+     * Add.
+     * @param Tag  $entity
+     * @param bool $flush
+     *
+     * @return void
+     */
     public function add(Tag $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
@@ -30,6 +45,13 @@ class TagRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Remove.
+     * @param Tag  $entity
+     * @param bool $flush
+     *
+     * @return void
+     */
     public function remove(Tag $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);

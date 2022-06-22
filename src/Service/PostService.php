@@ -10,6 +10,7 @@ use App\Entity\User;
 use App\Repository\PostRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Doctrine\ORM\NonUniqueResultException;
 
 /**
  * Class PostService.
@@ -18,24 +19,28 @@ class PostService implements PostServiceInterface
 {
     /**
      * Post repository.
+     * @var PostRepository
      */
     private PostRepository $postRepository;
 
     /**
      * Category service.
+     * @var CategoryServiceInterface
      */
     private CategoryServiceInterface $categoryService;
 
     /**
      * Paginator.
+     * @var PaginatorInterface
      */
     private PaginatorInterface $paginator;
 
     /**
      * Constructor.
      *
-     * @param PostRepository     $postRepository Post repository
-     * @param PaginatorInterface $paginator      Paginator
+     * @param PostRepository           $postRepository
+     * @param PaginatorInterface       $paginator
+     * @param CategoryServiceInterface $categoryService
      */
     public function __construct(PostRepository $postRepository, PaginatorInterface $paginator, CategoryServiceInterface $categoryService)
     {
@@ -47,11 +52,10 @@ class PostService implements PostServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int                $page    Page number
-     * @param User               $author  Tasks author
-     * @param array<string, int> $filters Filters array
+     * @param int   $page
+     * @param array $filters
      *
-     * @return PaginationInterface<SlidingPagination> Paginated list
+     * @return PaginationInterface
      */
     public function getPaginatedList(int $page, array $filters = []): PaginationInterface
     {
@@ -67,7 +71,9 @@ class PostService implements PostServiceInterface
     /**
      * Save entity.
      *
-     * @param Post $post Post entity
+     * @param Post $post
+     *
+     * @return void
      */
     public function save(Post $post): void
     {
@@ -81,7 +87,9 @@ class PostService implements PostServiceInterface
     /**
      * Delete entity.
      *
-     * @param Post $post Post entity
+     * @param Post $post
+     *
+     * @return void
      */
     public function delete(Post $post): void
     {
@@ -91,9 +99,11 @@ class PostService implements PostServiceInterface
     /**
      * Prepare filters for the posts list.
      *
-     * @param array<string, int> $filters Raw filters from request
+     * @param array $filters
      *
-     * @return array<string, object> Result array of filters
+     * @return array
+     *
+     * @throws NonUniqueResultException
      */
     private function prepareFilters(array $filters): array
     {

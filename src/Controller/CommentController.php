@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Comment controller.
  */
@@ -24,24 +25,32 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class CommentController extends AbstractController
 {
     /**
-     * Comment repository.
+     * Comment Repository.
+     *
+     * @var CommentRepository
      */
     private CommentRepository $commentRepository;
 
     /**
      * Comment service.
+     *
+     * @var CommentServiceInterface
      */
     private CommentServiceInterface $commentService;
 
     /**
-     * Translator.
+     * Translator interface.
+     *
+     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 
     /**
      * Constructor.
      *
-     * @param CommentRepository $commentRepository Comment repository
+     * @param CommentRepository       $commentRepository
+     * @param CommentServiceInterface $commentService
+     * @param TranslatorInterface     $translator
      */
     public function __construct(CommentRepository $commentRepository, CommentServiceInterface $commentService, TranslatorInterface $translator)
     {
@@ -53,9 +62,10 @@ class CommentController extends AbstractController
     /**
      * Create action.
      *
-     * @param Request $request HTTP request
+     * @param Request $request
+     * @param Post    $post
      *
-     * @return Response HTTP response
+     * @return Response
      */
     #[Route(
         '/create',

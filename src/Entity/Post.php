@@ -22,7 +22,6 @@ class Post
 {
     /**
      * Primary key.
-     *
      * @var int|null
      */
     #[ORM\Id]
@@ -32,7 +31,6 @@ class Post
 
     /**
      * Title.
-     *
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 50)]
@@ -40,7 +38,6 @@ class Post
 
     /**
      * Contents.
-     *
      * @var text|null
      */
     #[ORM\Column(type: 'text')]
@@ -48,7 +45,6 @@ class Post
 
     /**
      * Created at.
-     *
      * @var DateTimeImmutable|null
      */
     #[ORM\Column(type: 'datetime_immutable')]
@@ -56,19 +52,21 @@ class Post
 
     /**
      * Category.
-     *
-     * @var Category
+     * @var Category|null
      */
     #[ORM\ManyToOne(targetEntity: Category::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
+    /**
+     * Tags.
+     * @var ArrayCollection
+     */
     #[ORM\ManyToMany(targetEntity: Tag::class)]
     private $tags;
 
     /**
      * Author.
-     *
      * @var User|null
      */
     #[ORM\ManyToOne(targetEntity: User::class, fetch: 'EXTRA_LAZY')]
@@ -79,12 +77,14 @@ class Post
 
     /**
      * Comments.
-     *
      * @var ArrayCollection
      */
     #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comment::class, cascade: ['remove'])]
     private $comments;
 
+    /**
+     * Constructor.
+     */
     public function __construct()
     {
         $this->tags = new ArrayCollection();
@@ -114,7 +114,9 @@ class Post
     /**
      * Setter for title.
      *
-     * @param string $title Title
+     * @param string $title
+     *
+     * @return $this
      */
     public function setTitle(string $title): self
     {
@@ -136,7 +138,9 @@ class Post
     /**
      * Setter for contents.
      *
-     * @param string $contents Contents
+     * @param string $contents
+     *
+     * @return $this
      */
     public function setContents(string $contents): self
     {
@@ -158,7 +162,9 @@ class Post
     /**
      * Setter for created at.
      *
-     * @param DateTimeImmutable $createdAt Created at
+     * @param DateTimeImmutable $createdAt
+     *
+     * @return $this
      */
     public function setCreatedAt(DateTimeImmutable $createdAt): self
     {
@@ -169,6 +175,8 @@ class Post
 
     /**
      * Getter for category.
+     *
+     * @return Category|null
      */
     public function getCategory(): ?Category
     {
@@ -177,6 +185,8 @@ class Post
 
     /**
      * Setter for category.
+     *
+     * @param Category|null $category
      *
      * @return $this
      */
@@ -198,7 +208,9 @@ class Post
     }
 
     /**
-     * Add a Tag.
+     * Add a tag.
+     *
+     * @param Tag $tag
      *
      * @return $this
      */
@@ -214,6 +226,8 @@ class Post
     /**
      * Remove a tag.
      *
+     * @param Tag $tag
+     *
      * @return $this
      */
     public function removeTag(Tag $tag): self
@@ -223,11 +237,23 @@ class Post
         return $this;
     }
 
+    /**
+     * Get author.
+     *
+     * @return User|null
+     */
     public function getAuthor(): ?User
     {
         return $this->author;
     }
 
+    /**
+     * Set author.
+     *
+     * @param User|null $author
+     *
+     * @return $this
+     */
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
@@ -236,6 +262,8 @@ class Post
     }
 
     /**
+     * Get comments.
+     *
      * @return Collection<int, Comment>
      */
     public function getComments(): Collection
@@ -243,6 +271,13 @@ class Post
         return $this->comments;
     }
 
+    /**
+     * Add comment.
+     *
+     * @param Comment $comment
+     *
+     * @return $this
+     */
     public function addComment(Comment $comment): self
     {
         if (!$this->comments->contains($comment)) {
@@ -253,6 +288,13 @@ class Post
         return $this;
     }
 
+    /**
+     * Remove comments.
+     *
+     * @param Comment $comment
+     *
+     * @return $this
+     */
     public function removeComment(Comment $comment): self
     {
         if ($this->comments->removeElement($comment)) {

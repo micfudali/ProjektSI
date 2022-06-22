@@ -1,10 +1,17 @@
 <?php
 
+/**
+ * Comment entity.
+ */
+
 namespace App\Entity;
 
 use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Class comment.
+ */
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 #[ORM\Table(name: 'comments')]
 class Comment
@@ -54,6 +61,8 @@ class Comment
 
     /**
      * Getter for id.
+     *
+     * @return int|null
      */
     public function getId(): ?int
     {
@@ -62,6 +71,8 @@ class Comment
 
     /**
      * Setter for email.
+     *
+     * @param string $email
      *
      * @return $this
      */
@@ -74,6 +85,8 @@ class Comment
 
     /**
      * Getter for email.
+     *
+     * @return string|null
      */
     public function getEmail(): ?string
     {
@@ -82,6 +95,8 @@ class Comment
 
     /**
      * Getter for nick.
+     *
+     * @return string|null
      */
     public function getNick(): ?string
     {
@@ -90,6 +105,8 @@ class Comment
 
     /**
      * Setter for nick.
+     *
+     * @param string $nick
      *
      * @return $this
      */
@@ -101,7 +118,9 @@ class Comment
     }
 
     /**
-     * Getter for contents.
+     * Getter for contents
+     *
+     * @return string|null
      */
     public function getContents(): ?string
     {
@@ -110,6 +129,8 @@ class Comment
 
     /**
      * Setter for contents.
+     *
+     * @param string $contents
      *
      * @return $this
      */
@@ -120,11 +141,23 @@ class Comment
         return $this;
     }
 
+    /**
+     * Getter for post.
+     *
+     * @return Post|null
+     */
     public function getPost(): ?Post
     {
         return $this->post;
     }
 
+    /**
+     * Setter for post.
+     *
+     * @param Post|null $post
+     *
+     * @return $this
+     */
     public function setPost(?Post $post): self
     {
         $this->post = $post;

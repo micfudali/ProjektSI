@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Post repository.
+ */
+
 namespace App\Repository;
 
 use App\Entity\Post;
@@ -22,11 +26,22 @@ class PostRepository extends ServiceEntityRepository
 {
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
+    /**
+     * Constructor.
+     * @param ManagerRegistry $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Post::class);
     }
 
+    /**
+     * Add.
+     * @param Post $entity
+     * @param bool $flush
+     *
+     * @return void
+     */
     public function add(Post $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
@@ -36,6 +51,13 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Remove.
+     * @param Post $entity
+     * @param bool $flush
+     *
+     * @return void
+     */
     public function remove(Post $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
@@ -64,36 +86,6 @@ class PostRepository extends ServiceEntityRepository
             ->orderBy('post.createdAt', 'DESC');
 
         return $this->applyFiltersToList($queryBuilder, $filters);
-    }
-
-    /**
-     * Apply filters to paginated list.
-     *
-     * @param QueryBuilder          $queryBuilder Query builder
-     * @param array<string, object> $filters      Filters array
-     *
-     * @return QueryBuilder Query builder
-     */
-    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
-    {
-        if (isset($filters['category']) && $filters['category'] instanceof Category) {
-            $queryBuilder->andWhere('category = :category')
-                ->setParameter('category', $filters['category']);
-        }
-
-        return $queryBuilder;
-    }
-
-    /**
-     * Get or create new query builder.
-     *
-     * @param QueryBuilder|null $queryBuilder Query builder
-     *
-     * @return QueryBuilder Query builder
-     */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('post');
     }
 
     /**
@@ -137,5 +129,35 @@ class PostRepository extends ServiceEntityRepository
             ->setParameter(':category', $category)
             ->getQuery()
             ->getSingleScalarResult();
+    }
+
+    /**
+     * Apply filters to paginated list.
+     *
+     * @param QueryBuilder          $queryBuilder Query builder
+     * @param array<string, object> $filters      Filters array
+     *
+     * @return QueryBuilder Query builder
+     */
+    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
+    {
+        if (isset($filters['category']) && $filters['category'] instanceof Category) {
+            $queryBuilder->andWhere('category = :category')
+                ->setParameter('category', $filters['category']);
+        }
+
+        return $queryBuilder;
+    }
+
+    /**
+     * Get or create new query builder.
+     *
+     * @param QueryBuilder|null $queryBuilder Query builder
+     *
+     * @return QueryBuilder Query builder
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('post');
     }
 }

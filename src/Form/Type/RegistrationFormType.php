@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Registration type.
+ */
+
 namespace App\Form\Type;
 
 use App\Entity\User;
@@ -12,13 +16,23 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * Class RegistrationFormType
+ */
 class RegistrationFormType extends AbstractType
 {
+    /**
+     * Build form.
+     *
+     * @param FormBuilderInterface $builder
+     * @param array                $options
+     *
+     * @return void
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('roles'[
-                ])
+            ->add('roles')
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
@@ -48,6 +62,13 @@ class RegistrationFormType extends AbstractType
         ;
     }
 
+    /**
+     * Configure options.
+     *
+     * @param OptionsResolver $resolver
+     *
+     * @return void
+     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

@@ -1,11 +1,18 @@
 <?php
 
+/**
+ * Tag entity.
+ */
+
 namespace App\Entity;
 
 use App\Repository\TagRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
+/**
+ * Class tag.
+ */
 #[ORM\Entity(repositoryClass: TagRepository::class)]
 #[ORM\Table(name: 'tags')]
 #[ORM\UniqueConstraint(name: 'uq_tags_title', columns: ['title'])]
@@ -41,9 +48,11 @@ class Tag
     }
 
     /**
-     * Setter for Title.
+     * Setter for title.
      *
-     * @param string|null $title Title
+     * @param string $title
+     *
+     * @return $this
      */
     public function setTitle(string $title): self
     {

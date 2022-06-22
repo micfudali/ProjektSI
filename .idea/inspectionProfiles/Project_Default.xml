@@ -1,9 +1,30 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <inspection_tool class="AngularAmbiguousComponentTag" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularCliAddDependency" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularInaccessibleComponentMemberInAotMode" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularIncorrectTemplateDefinition" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularInsecureBindingToEvent" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularInvalidAnimationTriggerAssignment" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularInvalidEntryComponent" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularInvalidI18nAttribute" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularInvalidImportedOrDeclaredSymbol" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularInvalidSelector" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularInvalidTemplateReferenceVariable" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularMissingEventHandler" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularMissingOrInvalidDeclarationInModule" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularMultipleStructuralDirectives" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularNonEmptyNgContent" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularRecursiveModuleImportExport" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularUndefinedBinding" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularUndefinedModuleExport" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="AngularUndefinedTag" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="PhpCSFixerValidationInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
     <inspection_tool class="PhpCSValidationInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
       <option name="CODING_STANDARD" value="Custom" />
       <option name="CUSTOM_RULESET_PATH" value="$PROJECT_DIR$/phpcs.xml.dist" />
+      <option name="EXTENSIONS" value="php,js,css,inc" />
     </inspection_tool>
   </profile>
 </component>

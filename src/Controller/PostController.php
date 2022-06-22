@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Post controller.
  */
@@ -42,34 +43,17 @@ class PostController extends AbstractController
     private TranslatorInterface $translator;
 
     /**
-     * Constructor.
+     * Comment service.
      *
-     * @param PostServiceInterface $postService Post service
-     * @param TranslatorInterface  $translator  Translator
+     * @param PostServiceInterface    $postService
+     * @param TranslatorInterface     $translator
+     * @param CommentServiceInterface $commentService
      */
     public function __construct(PostServiceInterface $postService, TranslatorInterface $translator, CommentServiceInterface $commentService)
     {
         $this->postService = $postService;
         $this->translator = $translator;
         $this->commentService = $commentService;
-    }
-
-    /**
-     * Get filters from request.
-     *
-     * @param Request $request HTTP request
-     *
-     * @return array<string, int> Array of filters
-     *
-     * @psalm-return array{category_id: int, tag_id: int, status_id: int}
-     */
-    private function getFilters(Request $request): array
-    {
-        $filters = [];
-        $filters['category_id'] = $request->query->getInt('filters_category_id');
-        $filters['tag_id'] = $request->query->getInt('filters_tag_id');
-
-        return $filters;
     }
 
     /**
@@ -114,9 +98,9 @@ class PostController extends AbstractController
     /**
      * Create action.
      *
-     * @param Request $request HTTP request
+     * @param Request $request
      *
-     * @return Response HTTP response
+     * @return Response
      */
     #[Route('/create', name: 'post_create', methods: 'GET|POST')]
     public function create(Request $request): Response
@@ -227,9 +211,10 @@ class PostController extends AbstractController
     /**
      * Comment action.
      *
-     * @param Request $request HTTP request
+     * @param Request $request
+     * @param Post    $post
      *
-     * @return Response HTTP response
+     * @return Response
      */
     #[Route('/{id}/comment', name: 'post_comment', methods: 'GET|POST')]
     public function comment(Request $request, Post $post): Response
@@ -254,5 +239,24 @@ class PostController extends AbstractController
             'comment/create.html.twig',
             ['form' => $form->createView()]
         );
+    }
+
+
+    /**
+     * Get filters from request.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return array<string, int> Array of filters
+     *
+     * @psalm-return array{category_id: int, tag_id: int, status_id: int}
+     */
+    private function getFilters(Request $request): array
+    {
+        $filters = [];
+        $filters['category_id'] = $request->query->getInt('filters_category_id');
+        $filters['tag_id'] = $request->query->getInt('filters_tag_id');
+
+        return $filters;
     }
 }

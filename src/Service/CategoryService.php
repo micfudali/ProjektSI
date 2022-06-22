@@ -25,8 +25,10 @@ class CategoryService implements CategoryServiceInterface
 
     /**
      * Post repository.
+     * @var PostRepository
      */
     private PostRepository $postRepository;
+
     /**
      * Paginator.
      */
@@ -35,8 +37,9 @@ class CategoryService implements CategoryServiceInterface
     /**
      * Constructor.
      *
-     * @param CategoryRepository $categoryRepository Category repository
-     * @param PaginatorInterface $paginator          Paginator
+     * @param CategoryRepository $categoryRepository
+     * @param PaginatorInterface $paginator
+     * @param PostRepository     $postRepository
      */
     public function __construct(CategoryRepository $categoryRepository, PaginatorInterface $paginator, PostRepository $postRepository)
     {
@@ -81,13 +84,20 @@ class CategoryService implements CategoryServiceInterface
         $this->categoryRepository->delete($category);
     }
 
+    /**
+     * Can be deleted?
+     *
+     * @param Category $category
+     *
+     * @return bool
+     */
     public function canBeDeleted(Category $category): bool
     {
         try {
             $result = $this->postRepository->countByCategory($category);
 
             return !($result > 0);
-        } catch (NoResultException|NonUniqueResultException) {
+        } catch (NoResultException | NonUniqueResultException) {
             return false;
         }
     }

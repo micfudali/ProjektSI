@@ -1,10 +1,15 @@
 <?php
 
+/**
+ * Comment repository.
+ */
+
 namespace App\Repository;
 
 use App\Entity\Comment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\NonUniqueResultException;
 
 /**
  * @extends ServiceEntityRepository<Comment>
@@ -16,11 +21,23 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class CommentRepository extends ServiceEntityRepository
 {
+    /**
+     * Constructor.
+     * @param ManagerRegistry $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Comment::class);
     }
 
+    /**
+     * Add.
+     *
+     * @param Comment $entity
+     * @param bool    $flush
+     *
+     * @return void
+     */
     public function add(Comment $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
@@ -30,6 +47,14 @@ class CommentRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Remove.
+     *
+     * @param Comment $entity
+     * @param bool    $flush
+     *
+     * @return void
+     */
     public function remove(Comment $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
@@ -40,7 +65,11 @@ class CommentRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Comment[] Returns an array of Comment objects
+     * Find by example field.
+     *
+     * @param $value
+     *
+     * @return array
      */
     public function findByExampleField($value): array
     {
@@ -54,6 +83,15 @@ class CommentRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * Find one by some field.
+     *
+     * @param $value
+     *
+     * @return Comment|null
+     *
+     * @throws NonUniqueResultException
+     */
     public function findOneBySomeField($value): ?Comment
     {
         return $this->createQueryBuilder('c')
