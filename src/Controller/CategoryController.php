@@ -28,8 +28,6 @@ class CategoryController extends AbstractController
 
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 
@@ -37,7 +35,7 @@ class CategoryController extends AbstractController
      * Constructor.
      *
      * @param CategoryServiceInterface $categoryService Category service
-     * @param TranslatorInterface      $translator  Translator
+     * @param TranslatorInterface      $translator      Translator
      */
     public function __construct(CategoryServiceInterface $categoryService, TranslatorInterface $translator)
     {
@@ -127,7 +125,8 @@ class CategoryController extends AbstractController
         '/{id}/edit',
         name: 'category_edit',
         requirements: ['id' => '[1-9]\d*'],
-        methods: 'PUT|GET')]
+        methods: 'PUT|GET'
+    )]
     public function edit(Request $request, Category $category): Response
     {
         $form = $this->createForm(CategoryType::class, $category, [
@@ -167,7 +166,7 @@ class CategoryController extends AbstractController
     #[Route('/{id}/delete', name: 'category_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
     public function delete(Request $request, Category $category): Response
     {
-        if(!$this->categoryService->canBeDeleted($category)) {
+        if (!$this->categoryService->canBeDeleted($category)) {
             $this->addFlash(
                 'warning',
                 $this->translator->trans('Category cannot be deleted because it contains a post.')

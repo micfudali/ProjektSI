@@ -32,13 +32,14 @@ class PostType extends AbstractType
     {
         $builder
             ->add(
-            'title',
-            TextType::class,
-            [
+                'title',
+                TextType::class,
+                [
                 'label' => 'label.title',
                 'required' => true,
                 'attr' => ['max_length' => 64],
-            ])
+            ]
+            )
             ->add(
                 'contents',
                 TextType::class,
@@ -46,20 +47,21 @@ class PostType extends AbstractType
                     'label' => 'Contents',
                     'required' => true,
                     'attr' => ['max_length' => 65535],
-                    ])
+                    ]
+            )
             ->add(
                 'category',
                 EntityType::class,
                 [
                     'class' => Category::class,
-                    'choice_label' => function ($category) : string {
+                    'choice_label' => function ($category): string {
                         return $category->getTitle();
-                     },
+                    },
                     'label' => 'Category',
                     'placeholder' => 'label.none',
                     'required' => true,
                     'expanded' => true,
-                    'multiple' => false
+                    'multiple' => false,
                 ]
             );
     }
@@ -77,8 +79,6 @@ class PostType extends AbstractType
      *
      * The block prefix defaults to the underscored short class name with
      * the "Type" suffix removed (e.g. "UserProfileType" => "user_profile").
-     *
-     * @return string
      */
     public function getBlockPrefix(): string
     {

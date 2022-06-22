@@ -30,13 +30,14 @@ class CommentType extends AbstractType
     {
         $builder
             ->add(
-            'email',
-            TextType::class,
-            [
+                'email',
+                TextType::class,
+                [
                 'label' => 'Email',
                 'required' => true,
                 'attr' => ['max_length' => 64],
-            ])
+            ]
+            )
             ->add(
                 'nick',
                 TextType::class,
@@ -44,7 +45,8 @@ class CommentType extends AbstractType
                     'label' => 'Nick',
                     'required' => true,
                     'attr' => ['max_length' => 64],
-                ])
+                ]
+            )
             ->add(
                 'contents',
                 TextType::class,
@@ -52,8 +54,8 @@ class CommentType extends AbstractType
                     'label' => 'Contents',
                     'required' => true,
                     'attr' => ['max_length' => 300],
-
-                ]);
+                ]
+            );
     }
 
     /**
@@ -69,8 +71,6 @@ class CommentType extends AbstractType
      *
      * The block prefix defaults to the underscored short class name with
      * the "Type" suffix removed (e.g. "UserProfileType" => "user_profile").
-     *
-     * @return string
      */
     public function getBlockPrefix(): string
     {

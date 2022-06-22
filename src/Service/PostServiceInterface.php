@@ -6,7 +6,6 @@
 namespace App\Service;
 
 use App\Entity\Post;
-use App\Entity\User;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
@@ -34,7 +33,6 @@ interface PostServiceInterface
      * Delete post.
      *
      * @param Post $post Post entity
-     * @return void
      */
     public function delete(Post $post): void;
 }

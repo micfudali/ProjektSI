@@ -7,8 +7,6 @@ namespace App\Form\Type;
 
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -16,7 +14,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class DeleteCategoryType extends AbstractType
 {
-
     /**
      * Configures the options for this type.
      */
@@ -30,8 +27,6 @@ class DeleteCategoryType extends AbstractType
      *
      * The block prefix defaults to the underscored short class name with
      * the "Type" suffix removed (e.g. "UserProfileType" => "user_profile").
-     *
-     * @return string
      */
     public function getBlockPrefix(): string
     {

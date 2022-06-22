@@ -9,8 +9,6 @@ use App\Entity\Post;
 use App\Entity\User;
 use App\Entity\Comment;
 use App\Form\Type\DeletePostType;
-use App\Repository\PostRepository;
-use App\Repository\CommentRepository;
 use App\Form\Type\CommentType;
 use App\Service\PostServiceInterface;
 use App\Service\CommentServiceInterface;
@@ -40,8 +38,6 @@ class PostController extends AbstractController
 
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 
@@ -49,7 +45,7 @@ class PostController extends AbstractController
      * Constructor.
      *
      * @param PostServiceInterface $postService Post service
-     * @param TranslatorInterface      $translator  Translator
+     * @param TranslatorInterface  $translator  Translator
      */
     public function __construct(PostServiceInterface $postService, TranslatorInterface $translator, CommentServiceInterface $commentService)
     {
@@ -111,7 +107,7 @@ class PostController extends AbstractController
     public function show(Post $post): Response
     {
         return $this->render('post/show.html.twig', [
-            'post' => $post
+            'post' => $post,
         ]);
     }
 
@@ -155,8 +151,8 @@ class PostController extends AbstractController
     /**
      * Edit action.
      *
-     * @param Request  $request  HTTP request
-     * @param Post $post Post entity
+     * @param Request $request HTTP request
+     * @param Post    $post    Post entity
      *
      * @return Response HTTP response
      */
@@ -193,8 +189,8 @@ class PostController extends AbstractController
     /**
      * Delete action.
      *
-     * @param Request  $request  HTTP request
-     * @param Post $post Post entity
+     * @param Request $request HTTP request
+     * @param Post    $post    Post entity
      *
      * @return Response HTTP response
      */
@@ -227,6 +223,7 @@ class PostController extends AbstractController
             ]
         );
     }
+
     /**
      * Comment action.
      *

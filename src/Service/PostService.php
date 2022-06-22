@@ -71,7 +71,7 @@ class PostService implements PostServiceInterface
      */
     public function save(Post $post): void
     {
-        if ($post->getId() == null) {
+        if (null == $post->getId()) {
             $post->setCreatedAt(new \DateTimeImmutable());
         }
 
@@ -104,7 +104,7 @@ class PostService implements PostServiceInterface
                 $resultFilters['category'] = $category;
             }
         }
+
         return $resultFilters;
     }
-    
 }

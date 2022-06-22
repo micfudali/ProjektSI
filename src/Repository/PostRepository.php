@@ -7,6 +7,8 @@ use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 
 /**
  * @extends ServiceEntityRepository<Post>
@@ -106,10 +108,9 @@ class PostRepository extends ServiceEntityRepository
     }
 
     /**
-     * Delete entity
+     * Delete entity.
      *
      * @param Post $post Post entity
-     * @return void
      */
     public function delete(Post $post): void
     {
@@ -137,5 +138,4 @@ class PostRepository extends ServiceEntityRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
-
 }

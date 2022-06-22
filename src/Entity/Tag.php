@@ -33,7 +33,7 @@ class Tag
     /**
      * Getter for Title.
      *
-     * @return string|null Title.
+     * @return string|null title
      */
     public function getTitle(): ?string
     {

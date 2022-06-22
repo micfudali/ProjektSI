@@ -8,7 +8,6 @@ namespace App\Controller;
 use App\Entity\Comment;
 use App\Entity\Post;
 use App\Repository\CommentRepository;
-use App\Repository\PostRepository;
 use App\Form\Type\CommentType;
 use App\Form\Type\DeleteCommentType;
 use App\Service\CommentServiceInterface;
@@ -26,13 +25,11 @@ class CommentController extends AbstractController
 {
     /**
      * Comment repository.
-     *
      */
     private CommentRepository $commentRepository;
 
     /**
      * Comment service.
-     *
      */
     private CommentServiceInterface $commentService;
 
@@ -44,7 +41,7 @@ class CommentController extends AbstractController
     /**
      * Constructor.
      *
-     * @param CommentRepository     $commentRepository Comment repository
+     * @param CommentRepository $commentRepository Comment repository
      */
     public function __construct(CommentRepository $commentRepository, CommentServiceInterface $commentService, TranslatorInterface $translator)
     {
@@ -52,6 +49,7 @@ class CommentController extends AbstractController
         $this->commentService = $commentService;
         $this->translator = $translator;
     }
+
     /**
      * Create action.
      *
@@ -86,7 +84,7 @@ class CommentController extends AbstractController
     /**
      * Delete action.
      *
-     * @param Request  $request  HTTP request
+     * @param Request $request HTTP request
      * @param Comment $comment Comment entity
      *
      * @return Response HTTP response
@@ -94,7 +92,6 @@ class CommentController extends AbstractController
     #[Route('/{id}/delete', name: 'comment_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
     public function delete(Request $request, Comment $comment): Response
     {
-
         $form = $this->createForm(DeleteCommentType::class, $comment, [
             'method' => 'DELETE',
             'action' => $this->generateUrl('comment_delete', ['id' => $comment->getId()]),

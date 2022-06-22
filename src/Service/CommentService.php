@@ -21,7 +21,7 @@ class CommentService implements CommentServiceInterface
     /**
      * Constructor.
      *
-     * @param CommentRepository     $commentRepository Comment repository
+     * @param CommentRepository $commentRepository Comment repository
      */
     public function __construct(CommentRepository $commentRepository)
     {

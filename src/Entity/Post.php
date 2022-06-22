@@ -78,11 +78,11 @@ class Post
     private ?User $author;
 
     /**
-     * Comments
+     * Comments.
      *
      * @var ArrayCollection
      */
-    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comment::class, cascade: ["remove"])]
+    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comment::class, cascade: ['remove'])]
     private $comments;
 
     public function __construct()
@@ -169,8 +169,6 @@ class Post
 
     /**
      * Getter for category.
-     *
-     * @return Category|null
      */
     public function getCategory(): ?Category
     {
@@ -180,7 +178,6 @@ class Post
     /**
      * Setter for category.
      *
-     * @param Category|null $category
      * @return $this
      */
     public function setCategory(?Category $category): self
@@ -203,7 +200,6 @@ class Post
     /**
      * Add a Tag.
      *
-     * @param Tag $tag
      * @return $this
      */
     public function addTag(Tag $tag): self
@@ -218,7 +214,6 @@ class Post
     /**
      * Remove a tag.
      *
-     * @param Tag $tag
      * @return $this
      */
     public function removeTag(Tag $tag): self
