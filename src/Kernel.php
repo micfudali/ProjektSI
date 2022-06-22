@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Kernel
+ * Kernel.
  */
 
 namespace App;

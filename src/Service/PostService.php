@@ -6,7 +6,6 @@
 namespace App\Service;
 
 use App\Entity\Post;
-use App\Entity\User;
 use App\Repository\PostRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -19,28 +18,21 @@ class PostService implements PostServiceInterface
 {
     /**
      * Post repository.
-     * @var PostRepository
      */
     private PostRepository $postRepository;
 
     /**
      * Category service.
-     * @var CategoryServiceInterface
      */
     private CategoryServiceInterface $categoryService;
 
     /**
      * Paginator.
-     * @var PaginatorInterface
      */
     private PaginatorInterface $paginator;
 
     /**
      * Constructor.
-     *
-     * @param PostRepository           $postRepository
-     * @param PaginatorInterface       $paginator
-     * @param CategoryServiceInterface $categoryService
      */
     public function __construct(PostRepository $postRepository, PaginatorInterface $paginator, CategoryServiceInterface $categoryService)
     {
@@ -51,11 +43,6 @@ class PostService implements PostServiceInterface
 
     /**
      * Get paginated list.
-     *
-     * @param int   $page
-     * @param array $filters
-     *
-     * @return PaginationInterface
      */
     public function getPaginatedList(int $page, array $filters = []): PaginationInterface
     {
@@ -70,10 +57,6 @@ class PostService implements PostServiceInterface
 
     /**
      * Save entity.
-     *
-     * @param Post $post
-     *
-     * @return void
      */
     public function save(Post $post): void
     {
@@ -86,10 +69,6 @@ class PostService implements PostServiceInterface
 
     /**
      * Delete entity.
-     *
-     * @param Post $post
-     *
-     * @return void
      */
     public function delete(Post $post): void
     {
@@ -98,10 +77,6 @@ class PostService implements PostServiceInterface
 
     /**
      * Prepare filters for the posts list.
-     *
-     * @param array $filters
-     *
-     * @return array
      *
      * @throws NonUniqueResultException
      */

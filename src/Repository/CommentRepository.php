@@ -23,7 +23,6 @@ class CommentRepository extends ServiceEntityRepository
 {
     /**
      * Constructor.
-     * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -32,11 +31,6 @@ class CommentRepository extends ServiceEntityRepository
 
     /**
      * Add.
-     *
-     * @param Comment $entity
-     * @param bool    $flush
-     *
-     * @return void
      */
     public function add(Comment $entity, bool $flush = false): void
     {
@@ -49,11 +43,6 @@ class CommentRepository extends ServiceEntityRepository
 
     /**
      * Remove.
-     *
-     * @param Comment $entity
-     * @param bool    $flush
-     *
-     * @return void
      */
     public function remove(Comment $entity, bool $flush = false): void
     {
@@ -68,8 +57,6 @@ class CommentRepository extends ServiceEntityRepository
      * Find by example field.
      *
      * @param $value
-     *
-     * @return array
      */
     public function findByExampleField($value): array
     {
@@ -87,8 +74,6 @@ class CommentRepository extends ServiceEntityRepository
      * Find one by some field.
      *
      * @param $value
-     *
-     * @return Comment|null
      *
      * @throws NonUniqueResultException
      */

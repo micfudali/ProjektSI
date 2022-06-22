@@ -38,10 +38,6 @@ class UserController extends AbstractController
 
     /**
      * Constructor.
-     *
-     * @param UserServiceInterface        $userService
-     * @param TranslatorInterface         $translator
-     * @param UserPasswordHasherInterface $passwordHasher
      */
     public function __construct(UserServiceInterface $userService, TranslatorInterface $translator, UserPasswordHasherInterface $passwordHasher)
     {

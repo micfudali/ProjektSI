@@ -44,10 +44,6 @@ class PostController extends AbstractController
 
     /**
      * Comment service.
-     *
-     * @param PostServiceInterface    $postService
-     * @param TranslatorInterface     $translator
-     * @param CommentServiceInterface $commentService
      */
     public function __construct(PostServiceInterface $postService, TranslatorInterface $translator, CommentServiceInterface $commentService)
     {
@@ -240,7 +236,6 @@ class PostController extends AbstractController
             ['form' => $form->createView()]
         );
     }
-
 
     /**
      * Get filters from request.
