@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="label.actions">
         <source>label.actions</source>
-        <target>label.actions</target>
+        <target>Działania</target>
       </trans-unit>
       <trans-unit id="label.id">
         <source>label.id</source>
@@ -12,55 +12,55 @@
       </trans-unit>
       <trans-unit id="label.title">
         <source>label.title</source>
-        <target>Title</target>
+        <target>Tytuł</target>
       </trans-unit>
       <trans-unit id="label.content">
         <source>label.content</source>
-        <target>Contents</target>
+        <target>Treść</target>
       </trans-unit>
       <trans-unit id="label.tags">
         <source>label.tags</source>
-        <target>Tags</target>
+        <target>Tagi</target>
       </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
-        <target>The list is empty.</target>
+        <target>Lista jest pusta.</target>
       </trans-unit>
       <trans-unit id="message.record_not_found">
         <source>message.record_not_found</source>
-        <target>Record not found.</target>
+        <target>Nie znaleziono rekordu.</target>
       </trans-unit>
       <trans-unit id="title.record_list">
         <source>title.record_list</source>
-        <target>List of records</target>
+        <target>Lista rekordów</target>
       </trans-unit>
       <trans-unit id="title.record_view">
         <source>title.record_view</source>
-        <target>Record view #%id%</target>
+        <target>Widok rekordu #%id%</target>
       </trans-unit>
       <trans-unit id="action.create">
         <source>Update credentials</source>
-        <target>Update credentials</target>
+        <target>Zaktualizuj dane logowania</target>
       </trans-unit>
       <trans-unit id="action.save">
         <source>Save</source>
-        <target>Save</target>
+        <target>Zapisz</target>
       </trans-unit>
       <trans-unit id="post_index.title">
               <source>Posts | Blog</source>
-              <target>Posts | Blog</target>
+              <target>Posty | Blog</target>
             </trans-unit>
       <trans-unit id="post_index.header">
                     <source>Posts</source>
-                    <target>Posts</target>
+                    <target>Posty</target>
                   </trans-unit>
       <trans-unit id="post_action.go_to_categories">
                           <source>Go to categories</source>
-                          <target>Go to categories</target>
+                          <target>Przejdź do kategorii</target>
                         </trans-unit>
       <trans-unit id="post_action.create">
                           <source>Create new post</source>
-                          <target>Create new post</target>
+                          <target>Dodaj nowy post</target>
                         </trans-unit>
       <trans-unit id="post_post.id">
                           <source>id</source>
@@ -68,263 +68,263 @@
                         </trans-unit>
       <trans-unit id="post_post.createdAt">
                           <source>Created at</source>
-                          <target>Created at</target>
+                          <target>Data dodania</target>
                         </trans-unit>
       <trans-unit id="post_post.title">
                           <source>Title</source>
-                          <target>Title</target>
+                          <target>Tytuł</target>
                         </trans-unit>
       <trans-unit id="post_post.category">
                           <source>Category</source>
-                          <target>Category</target>
+                          <target>Kategoria</target>
                         </trans-unit>
       <trans-unit id="post_action.show">
                           <source>Read more</source>
-                          <target>Read more</target>
+                          <target>Czytaj</target>
                         </trans-unit>
       <trans-unit id="post_action.edit">
                                <source>Edit</source>
-                               <target>Edit</target>
+                               <target>Edytuj</target>
                         </trans-unit>
       <trans-unit id="post_action.delete">
                           <source>Delete</source>
-                          <target>Delete</target>
+                          <target>Usuń</target>
                          </trans-unit>
       <trans-unit id="post_actions">
                                 <source>Actions</source>
-                                <target>Actions</target>
+                                <target>Działania</target>
                               </trans-unit>
       <trans-unit id="logout">
                                 <source>Logout</source>
-                                <target>Logout</target>
+                                <target>Wyloguj</target>
                               </trans-unit>
       <trans-unit id="action.go_to_categories">
                                 <source>action.go_to_categories</source>
-                                <target>action.go_to_categories</target>
+                                <target>akcja.przejdź_do_kategorii</target>
                               </trans-unit>
       <trans-unit id="action_create">
                                 <source>action.create</source>
-                                <target>action.create</target>
+                                <target>akcja.dodaj</target>
                               </trans-unit>
       <trans-unit id="action_show">
                                 <source>action.show</source>
-                                <target>action.show</target>
+                                <target>akcja.pokaż</target>
                               </trans-unit>
       <trans-unit id="action_edit">
                                 <source>action.edit</source>
-                                <target>action.edit</target>
+                                <target>akcja.edytuj</target>
                               </trans-unit>
       <trans-unit id="action_delete">
                                 <source>action.delete</source>
-                                <target>action.delete</target>
+                                <target>akcja.usuń</target>
                               </trans-unit>
       <trans-unit id="post_contents">
                                 <source>Contents</source>
-                                <target>Contents</target>
+                                <target>Treść</target>
                               </trans-unit>
       <trans-unit id="post_comments">
                                  <source>Comments section</source>
-                                 <target>Comments section</target>
+                                 <target>Sekcja komentarzy</target>
                               </trans-unit>
       <trans-unit id="messages.post_add_comment">
                                 <source>Add comment</source>
-                                <target>Add comment</target>
+                                <target>Skomentuj</target>
                               </trans-unit>
       <trans-unit id="post_back.to.list">
                                 <source>Back to list</source>
-                                <target>Back to list</target>
+                                <target>Wróć do listy</target>
                               </trans-unit>
       <trans-unit id="post_post.details">
                                 <source>Post Details</source>
-                                <target>Post Details</target>
+                                <target>Szczegóły posta</target>
                               </trans-unit>
             <trans-unit id="show_post.title">
                                 <source>Post | Blog</source>
-                                <target>Post | Blog</target>
+                                <target>Czytaj post | Blog</target>
                               </trans-unit>
             <trans-unit id="action_add_comment">
                                 <source>action.add_comment</source>
-                                <target>action.add_comment</target>
+                                <target>akcja.dodaj_komentarz</target>
                               </trans-unit>
             <trans-unit id="action_back_to_list">
                                 <source>action.back_to_list</source>
-                                <target>action.back_to_list</target>
+                                <target>akcja.wróć_do_listy</target>
                               </trans-unit>
             <trans-unit id="edit_post.title">
                                 <source>Edit post | Blog</source>
-                                <target>Edit post | Blog</target>
+                                <target>Edytuj post | Blog</target>
                               </trans-unit>
             <trans-unit id="post_edit.post">
                                 <source>Edit post</source>
-                                <target>Edit post</target>
+                                <target>Edytuj post</target>
                               </trans-unit>
             <trans-unit id="delete_post.title">
                                 <source>Delete post</source>
-                                <target>Delete post</target>
+                                <target>Usuń post</target>
                               </trans-unit>
             <trans-unit id="category_title">
                                 <source>Categories | Blog</source>
-                                <target>Categories | Blog</target>
+                                <target>Kategorie | Blog</target>
                               </trans-unit>
             <trans-unit id="category_header">
                                 <source>Categories</source>
-                                <target>Categories</target>
+                                <target>Kategorie</target>
                               </trans-unit>
             <trans-unit id="category_go.to.posts">
                     <source>Go to posts</source>
-                    <target>Go to posts</target>
+                    <target>Przejdź do postów</target>
                   </trans-unit>
             <trans-unit id="category_create.new.category">
                     <source>Create new category</source>
-                    <target>Create new category</target>
+                    <target>Dodaj nową kategorię</target>
                   </trans-unit>
             <trans-unit id="category_details">
                     <source>Details</source>
-                    <target>Details</target>
+                    <target>Szczegóły</target>
                   </trans-unit>
             <trans-unit id="category_action_go_to_posts">
                     <source>action.go_to_posts</source>
-                    <target>action.go_to_posts</target>
+                    <target>akcja.przejdź_do_postów</target>
                   </trans-unit>
             <trans-unit id="category_create">
                     <source>Create category</source>
-                    <target>Create category</target>
+                    <target>Dodaj kategorię</target>
                   </trans-unit>
             <trans-unit id="category_edit">
                                 <source>Edit category</source>
-                                <target>Edit category</target>
+                                <target>Edytuj kategorię</target>
                               </trans-unit>
             <trans-unit id="message.category_cannot_be_deleted">
                     <source>Category cannot be deleted because it contains a post.</source>
-                    <target>Category cannot be deleted because it contains a post.</target>
+                    <target>Nie można usunąć tej kategorii, ponieważ jest do niej przypisany post.</target>
                   </trans-unit>
             <trans-unit id="category_delete">
                     <source>Delete category</source>
-                    <target>Delete category</target>
+                    <target>Usuń kategorię</target>
                   </trans-unit>
             <trans-unit id="user_profile_title">
                     <source>User's Profile | Blog</source>
-                    <target>User's Profile | Blog</target>
+                    <target>Profil użytkownika | Blog</target>
                   </trans-unit>
             <trans-unit id="user_profile">
                                 <source>User's Profile</source>
-                                <target>User's Profile</target>
+                                <target>Profil użytkownika</target>
                               </trans-unit>
             <trans-unit id="user_profile_email">
                                 <source>Email</source>
-                                <target>Email</target>
+                                <target>e-mail</target>
                               </trans-unit>
             <trans-unit id="user_profile_back_to_list">
                                 <source>Back to list of posts</source>
-                                <target>Back to list of posts</target>
+                                <target>Wróć do listy postów</target>
                               </trans-unit>
             <trans-unit id="edit_user_title">
                                 <source>Edit user | Blog</source>
-                                <target>Edit user | Blog</target>
+                                <target>Edytuj użytkownika | Blog</target>
                               </trans-unit>
             <trans-unit id="edit_user_password">
                                 <source>Password</source>
-                                <target>Password</target>
+                                <target>hasło</target>
                               </trans-unit>
             <trans-unit id="edit_user_repeat_password">
                                 <source>Repeat Password</source>
-                                <target>Repeat Password</target>
+                                <target>Powtórz hasło</target>
                               </trans-unit>
             <trans-unit id="edit_user_back_to_profile">
                                 <source>Back to user's profile</source>
-                                <target>Back to user's profile</target>
+                                <target>Wróć do profilu użytkownika</target>
                               </trans-unit>
             <trans-unit id="edit_user_header">
                                 <source>Edit user</source>
-                                <target>Edit user</target>
+                                <target>Edytuj użytkownika</target>
                               </trans-unit>
             <trans-unit id="login_login">
                                 <source>Login</source>
-                                <target>Login</target>
+                                <target>Zaloguj się</target>
                               </trans-unit>
             <trans-unit id="login_title">
                                 <source>Log in!</source>
-                                <target>Log in!</target>
+                                <target>Zaloguj się!</target>
                               </trans-unit>
             <trans-unit id="login_please_sign_in">
                                 <source>Please sign in</source>
-                                <target>Please sign in</target>
+                                <target>Proszę się zalogować</target>
                               </trans-unit>
             <trans-unit id="login_sign_in">
                                 <source>Sign in</source>
-                                <target>Sign in</target>
+                                <target>Zaloguj</target>
                               </trans-unit>
       <trans-unit id="message.category_added_successfully">
               <source>Category added successfully.</source>
-              <target>Category added successfully.</target>
+              <target>Dodano kategorię.</target>
             </trans-unit>
       <trans-unit id="message.category_edited_successfully">
                     <source>Category edited successfully.</source>
-                    <target>Category edited successfully.</target>
+                    <target>Edytowano kategorię.</target>
                   </trans-unit>
       <trans-unit id="message.category_deleted_successfully">
                     <source>Category deleted successfully.</source>
-                    <target>Category deleted successfully.</target>
+                    <target>Usunięto kategorię.</target>
                   </trans-unit>
       <trans-unit id="message.comment_deleted_successfully">
                     <source>Comment deleted successfully.</source>
-                    <target>Comment deleted successfully.</target>
+                    <target>Usunięto komentarz.</target>
                   </trans-unit>
       <trans-unit id="message.post_added_successfully">
                     <source>Post created successfully.</source>
-                    <target>Post created successfully.</target>
+                    <target>Dodano posta.</target>
                   </trans-unit>
       <trans-unit id="message.post_deleted_successfully">
                     <source>Post deleted successfully.</source>
-                    <target>Post deleted successfully.</target>
+                    <target>Usunięto posta.</target>
                   </trans-unit>
       <trans-unit id="message.post_edited_successfully">
                     <source>Post edited successfully.</source>
-                    <target>Post edited successfully.</target>
+                    <target>Edytowano posta.</target>
                   </trans-unit>
       <trans-unit id="message.comment_added_successfully">
                     <source>Comment added successfully.</source>
-                    <target>Comment added successfully.</target>
+                    <target>Dodano komentarz.</target>
                   </trans-unit>
       <trans-unit id="message.user_edited_successfully">
                     <source>User edited successfully.</source>
-                    <target>User edited successfully.</target>
+                    <target>Edytowano użytkownika.</target>
                   </trans-unit>
       <trans-unit id="category_details.title">
                           <source>Category | Blog</source>
-                          <target>Category | Blog</target>
+                          <target>Kategoria | Blog</target>
                         </trans-unit>
       <trans-unit id="category_details.header">
                           <source>Category Details</source>
-                          <target>Category Details</target>
+                          <target>Szczegóły kategorii</target>
                         </trans-unit>
       <trans-unit id="comment_delete">
                           <source>Delete comment</source>
-                          <target>Delete comment</target>
+                          <target>Usuń komentarz</target>
                         </trans-unit>
       <trans-unit id="message.form_error_">
                           <source>message.form_error</source>
-                          <target>message.form_error</target>
+                          <target>Błąd w formularzu.</target>
                         </trans-unit>
       <trans-unit id="message.comment_added_successfully_">
                           <source>Comment added successfully.</source>
-                          <target>Comment added successfully.</target>
+                          <target>Dodano komentarz.</target>
                         </trans-unit>
       <trans-unit id="create_post.title">
                           <source>Create post | Blog</source>
-                          <target>Create post | Blog</target>
+                          <target>Dodaj post | Blog</target>
                         </trans-unit>
       <trans-unit id="create_post.header">
                           <source>Create post</source>
-                          <target>Create post</target>
+                          <target>Dodaj post</target>
                         </trans-unit>
       <trans-unit id="record_not_found">
                           <source>Record not found</source>
-                          <target>Record not found</target>
+                          <target>Nie znaleziono rekordu</target>
                         </trans-unit>
       <trans-unit id="no_user">
                           <source>There is no such user.</source>
-                          <target>There is no such user.</target>
+                          <target>Nie ma takiego użytkownika.</target>
                         </trans-unit>
     </body>
   </file>

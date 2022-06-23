@@ -20,10 +20,10 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <p><th>{{ knp_pagination_sortable(pagination, 'id'|trans, 'post.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'id'|trans, 'post.id') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'Created at'|trans, 'post.createdAt') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'Title'|trans, 'post.title') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'Category'|trans, 'post.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Category'|trans, 'category.title') }}</th>
                 <th>{{ 'Actions'|trans }}</th>
             </tr>
             </thead>
