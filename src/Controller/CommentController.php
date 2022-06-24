@@ -103,7 +103,7 @@ class CommentController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('Comment deleted successfully.')
+                $this->translator->trans('message.comment_deleted')
             );
 
             return $this->redirectToRoute('post_index');

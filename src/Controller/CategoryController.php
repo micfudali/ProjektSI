@@ -101,7 +101,7 @@ class CategoryController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('Category added successfully.')
+                $this->translator->trans('message.category_added')
             );
 
             return $this->redirectToRoute('category_index');
@@ -140,7 +140,7 @@ class CategoryController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('Category edited successfully.')
+                $this->translator->trans('message.category_edited')
             );
 
             return $this->redirectToRoute('category_index');
@@ -169,7 +169,7 @@ class CategoryController extends AbstractController
         if (!$this->categoryService->canBeDeleted($category)) {
             $this->addFlash(
                 'warning',
-                $this->translator->trans('Category cannot be deleted because it contains a post.')
+                $this->translator->trans('message.category_cannot_be_deleted')
             );
 
             return $this->redirectToRoute('category_index');
@@ -186,7 +186,7 @@ class CategoryController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('Category deleted successfully.')
+                $this->translator->trans('message.category_deleted')
             );
 
             return $this->redirectToRoute('category_index');

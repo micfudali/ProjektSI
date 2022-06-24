@@ -30,11 +30,11 @@ class UserType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'type' => PasswordType::class,
-                'label' => 'Password',
+                'label' => 'label.password',
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
-                'first_options' => ['label' => 'Password'],
-                'second_options' => ['label' => 'Repeat Password'],
+                'first_options' => ['label' => 'label.password'],
+                'second_options' => ['label' => 'label.repeat_password'],
                 'required' => true,
                 'constraints' => [
                     new NotBlank([

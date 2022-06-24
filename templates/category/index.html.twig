@@ -1,26 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'Categories | Blog'|trans }}
+    {{ 'title.categories'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'Categories'|trans }}</h1>
+    <h1>{{ 'title.categories'|trans }}</h1>
     {% if pagination is defined and pagination.items|length %}
 
         <a class="btn btn-outline-primary" href="{{ url('post_index')}}" title="{{ 'action.go_to_posts'|trans }}">
-            {{ 'Go to posts'|trans }}
+            {{ 'action.go_to_posts'|trans }}
         </a>
         <a class="btn btn-outline-warning" href="{{ url('category_create')}}" title="{{ 'action.create'|trans }}">
-            {{ 'Create new category'|trans }}
+            {{ 'action.create'|trans }}
         </a>
 
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'id'|trans, 'category.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'Title'|trans, 'category.title') }}</th>
-                <th>{{ 'Actions'|trans }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'category.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'category.title') }}</th>
+                <th>{{ 'label.actions'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -30,17 +30,17 @@
                     <td>{{ category.title }}</td>
                     <td>
                         <a class="btn btn-outline-primary" href="{{ url('category_show', {id: category.id}) }}" title="{{ 'action.show'|trans }}">
-                            {{ 'Details'|trans }}
+                            {{ 'action.show'|trans }}
                         </a>
                     </td>
                     <td>
                         <a class="btn btn-outline-success" href="{{ url('category_edit', {id: category.id}) }}" title="{{ 'action.edit'|trans }}">
-                            {{ 'Edit'|trans }}
+                            {{ 'action.edit'|trans }}
                         </a>
                     </td>
                     <td>
                         <a class="btn btn-outline-danger" href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action.delete'|trans }}">
-                            {{ 'Delete'|trans }}
+                            {{ 'action.delete'|trans }}
                         </a>
                     </td>
                 </tr>

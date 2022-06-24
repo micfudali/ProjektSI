@@ -26,7 +26,7 @@ class CommentType extends AbstractType
                 'email',
                 TextType::class,
                 [
-                'label' => 'Email',
+                'label' => 'label.email',
                 'required' => true,
                 'attr' => ['max_length' => 64],
                 ]
@@ -35,7 +35,7 @@ class CommentType extends AbstractType
                 'nick',
                 TextType::class,
                 [
-                    'label' => 'Nick',
+                    'label' => 'label.nick',
                     'required' => true,
                     'attr' => ['max_length' => 64],
                 ]
@@ -44,7 +44,7 @@ class CommentType extends AbstractType
                 'contents',
                 TextType::class,
                 [
-                    'label' => 'Contents',
+                    'label' => 'label.contents',
                     'required' => true,
                     'attr' => ['max_length' => 300],
                 ]

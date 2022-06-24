@@ -37,7 +37,7 @@ class PostType extends AbstractType
                 'contents',
                 TextType::class,
                 [
-                    'label' => 'Contents',
+                    'label' => 'label.contents',
                     'required' => true,
                     'attr' => ['max_length' => 65535],
                     ]
@@ -50,7 +50,7 @@ class PostType extends AbstractType
                     'choice_label' => function ($category): string {
                         return $category->getTitle();
                     },
-                    'label' => 'Category',
+                    'label' => 'label.category',
                     'placeholder' => 'label.none',
                     'required' => true,
                     'expanded' => true,

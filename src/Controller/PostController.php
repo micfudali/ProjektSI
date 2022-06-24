@@ -117,7 +117,7 @@ class PostController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('Post created successfully.')
+                $this->translator->trans('message.post_added')
             );
 
             return $this->redirectToRoute('post_index');
@@ -151,7 +151,7 @@ class PostController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('Post edited successfully.')
+                $this->translator->trans('message.post_edited')
             );
 
             return $this->redirectToRoute('post_index');
@@ -189,7 +189,7 @@ class PostController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('Post deleted successfully.')
+                $this->translator->trans('message.post_deleted')
             );
 
             return $this->redirectToRoute('post_index');
@@ -225,7 +225,7 @@ class PostController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('Comment added successfully.')
+                $this->translator->trans('message.comment_added')
             );
 
             return $this->redirectToRoute('post_show', ['id' => $post->getId()]);

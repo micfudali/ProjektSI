@@ -92,7 +92,7 @@ class UserController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('User edited successfully.')
+                $this->translator->trans('message.user_edited')
             );
 
             return $this->redirectToRoute('post_index');

@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'Add Comment'|trans }}
+    {{ 'title.add_comment'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'Add comment'|trans }}</h1>
+    <h1>{{ 'title.add_comment'|trans }}</h1>
     {{ form_start(form) }}
     {{ form_widget(form) }}
     <div class="form-group row float-sm-right">
-        <input type="submit" value="{{ 'Add comment'|trans }}" class="btn btn-primary"/>
+        <input type="submit" value="{{ 'action.add_comment'|trans }}" class="btn btn-primary"/>
     </div>
     <div class="form-group row float-sm-left">
         <a href="{{ url('post_index') }}" class="btn btn-link">
-            {{ 'Back to list'|trans }}
+            {{ 'action.back_to_list'|trans }}
         </a>
     </div>
     {{ form_end(form) }}

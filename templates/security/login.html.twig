@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'Log in!'|trans }}
+    {{ 'title.login'|trans }}
 {% endblock %}
 
 {% block body %}
@@ -16,14 +16,14 @@
         </div>
     {% endif %}
     <h1 class="h3 mb-3 font-weight-normal">
-        {{ 'Please sign in'|trans }}
+        {{ 'title.login'|trans }}
     </h1>
     <label for="inputEmail">
-        {{ 'Email'|trans }}
+        {{ 'label.email'|trans }}
     </label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
     <label for="inputPassword">
-        {{ 'Password'|trans }}
+        {{ 'label.password'|trans }}
     </label>
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
@@ -43,10 +43,10 @@
     #}
 
     <button class="btn btn-lg btn-primary" type="submit">
-        {{ 'Sign in'|trans }}
+        {{ 'action.sign_in'|trans }}
     </button>
     <a href="{{ url('post_index') }}" class="btn btn-link">
-        {{ 'Back to list of posts'|trans }}
+        {{ 'action.back_to_list'|trans }}
     </a>
 </form>
 {% endblock %}
