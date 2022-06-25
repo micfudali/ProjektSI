@@ -10,6 +10,10 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Translation\Translator;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class CommentType.
@@ -29,6 +33,14 @@ class CommentType extends AbstractType
                 'label' => 'label.email',
                 'required' => true,
                 'attr' => ['max_length' => 64],
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => 'message.not_blank',
+                        ]),
+                        new Email([
+                            'message' => 'message.this_must_be_an_email',
+                        ])
+                    ],
                 ]
             )
             ->add(
@@ -38,6 +50,11 @@ class CommentType extends AbstractType
                     'label' => 'label.nick',
                     'required' => true,
                     'attr' => ['max_length' => 64],
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => 'message.not_blank',
+                        ])
+                    ],
                 ]
             )
             ->add(
@@ -47,6 +64,11 @@ class CommentType extends AbstractType
                     'label' => 'label.contents',
                     'required' => true,
                     'attr' => ['max_length' => 300],
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => 'message.not_blank',
+                        ])
+                    ],
                 ]
             );
     }

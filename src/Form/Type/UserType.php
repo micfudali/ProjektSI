@@ -38,11 +38,11 @@ class UserType extends AbstractType
                 'required' => true,
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'message.not_blank',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'message.min_length',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
