@@ -28,7 +28,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class PostController extends AbstractController
 {
     /**
-     * Post service interface
+     * Post service interface.
      */
     private PostServiceInterface $postService;
 
@@ -38,7 +38,7 @@ class PostController extends AbstractController
     private CommentServiceInterface $commentService;
 
     /**
-     * Translator interface
+     * Translator interface.
      */
     private TranslatorInterface $translator;
 
@@ -55,7 +55,7 @@ class PostController extends AbstractController
         $this->translator = $translator;
         $this->commentService = $commentService;
     }
-    
+
     /**
      * Index action.
      *

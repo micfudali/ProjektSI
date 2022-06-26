@@ -132,7 +132,7 @@ class Comment
     }
 
     /**
-     * Getter for post
+     * Getter for post.
      *
      * @return Post|null Post
      */
