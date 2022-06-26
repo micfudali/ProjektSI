@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.post_show'|trans({'%id%': post.id|default('')}) }}
+    {{ 'title.post_show'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.post_show'|trans({'%id%': post.id|default('')}) }}</h1>
+    <h1>{{ 'title.post_show'|trans }}</h1>
     {% if post is defined and post|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>

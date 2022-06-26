@@ -10,10 +10,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Translation\Translator;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class CommentType.
@@ -22,6 +20,11 @@ class CommentType extends AbstractType
 {
     /**
      * Builds the form.
+     *
+     * @param FormBuilderInterface $builder
+     * @param array                $options
+     *
+     * @return void
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -39,7 +42,7 @@ class CommentType extends AbstractType
                         ]),
                         new Email([
                             'message' => 'message.this_must_be_an_email',
-                        ])
+                        ]),
                     ],
                 ]
             )
@@ -53,7 +56,7 @@ class CommentType extends AbstractType
                     'constraints' => [
                         new NotBlank([
                             'message' => 'message.not_blank',
-                        ])
+                        ]),
                     ],
                 ]
             )
@@ -67,7 +70,7 @@ class CommentType extends AbstractType
                     'constraints' => [
                         new NotBlank([
                             'message' => 'message.not_blank',
-                        ])
+                        ]),
                     ],
                 ]
             );
@@ -75,6 +78,10 @@ class CommentType extends AbstractType
 
     /**
      * Configures the options for this type.
+     *
+     * @param OptionsResolver $resolver
+     *
+     * @return void
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -83,6 +90,8 @@ class CommentType extends AbstractType
 
     /**
      * Returns the prefix of the template block name for this type.
+     *
+     * @return string
      */
     public function getBlockPrefix(): string
     {

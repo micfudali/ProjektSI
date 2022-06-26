@@ -16,6 +16,10 @@ class DeleteCommentType extends AbstractType
 {
     /**
      * Configures the options for this type.
+     *
+     * @param OptionsResolver $resolver
+     *
+     * @return void
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -24,6 +28,8 @@ class DeleteCommentType extends AbstractType
 
     /**
      * Returns the prefix of the template block name for this type.
+     *
+     * @return string
      */
     public function getBlockPrefix(): string
     {

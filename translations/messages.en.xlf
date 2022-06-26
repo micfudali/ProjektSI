@@ -140,7 +140,7 @@
             </trans-unit>
       <trans-unit id="title.show_category">
               <source>title.show_category</source>
-              <target>Category details</target>
+              <target>Category details #%id%</target>
             </trans-unit>
       <trans-unit id="title.edit_category">
               <source>title.edit_category</source>

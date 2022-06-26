@@ -6,7 +6,7 @@
 
 {% block body %}
     <h1>{{ 'title.show_category'|trans({'%id%': category.id|default('')}) }}</h1>
-    {% if category is defined and category|length %}
+    {% if category.id is not null %}
         <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>
             <dd>{{ category.id }}</dd>

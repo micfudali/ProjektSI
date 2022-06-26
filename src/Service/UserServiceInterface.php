@@ -15,6 +15,8 @@ interface UserServiceInterface
 {
     /**
      * Constructor.
+     *
+     * @param UserRepository $userRepository
      */
     public function __construct(UserRepository $userRepository);
 

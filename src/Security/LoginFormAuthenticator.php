@@ -47,6 +47,8 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     /**
      * Url generator.
+     *
+     * @param UrlGeneratorInterface $urlGenerator
      */
     public function __construct(UrlGeneratorInterface $urlGenerator)
     {
@@ -70,6 +72,10 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     /**
      * Create a passport for the current request.
+     *
+     * @param Request $request
+     *
+     * @return Passport
      */
     public function authenticate(Request $request): Passport
     {

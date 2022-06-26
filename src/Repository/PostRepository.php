@@ -28,6 +28,8 @@ class PostRepository extends ServiceEntityRepository
 
     /**
      * Constructor.
+     *
+     * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -36,6 +38,11 @@ class PostRepository extends ServiceEntityRepository
 
     /**
      * Add.
+     *
+     * @param Post $entity
+     * @param bool $flush
+     *
+     * @return void
      */
     public function add(Post $entity, bool $flush = false): void
     {
@@ -48,6 +55,11 @@ class PostRepository extends ServiceEntityRepository
 
     /**
      * Remove.
+     *
+     * @param Post $entity
+     * @param bool $flush
+     *
+     * @return void
      */
     public function remove(Post $entity, bool $flush = false): void
     {

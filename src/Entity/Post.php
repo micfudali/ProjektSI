@@ -120,7 +120,10 @@ class Post
     }
 
     /**
+     * Setter for title.
+     *
      * @param string $title
+     *
      * @return $this
      */
     public function setTitle(string $title): self
@@ -133,7 +136,7 @@ class Post
     /**
      * Getter for contents.
      *
-     * @return text|null Contents
+     * @return string|null
      */
     public function getContents(): ?string
     {
@@ -142,6 +145,8 @@ class Post
 
     /**
      * Setter for contents.
+     *
+     * @param string $contents
      *
      * @return $this
      */
@@ -155,7 +160,7 @@ class Post
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null Created at
+     * @return DateTimeImmutable|null
      */
     public function getCreatedAt(): ?DateTimeImmutable
     {
@@ -164,6 +169,8 @@ class Post
 
     /**
      * Setter for created at.
+     *
+     * @param DateTimeImmutable $createdAt
      *
      * @return $this
      */
@@ -176,6 +183,8 @@ class Post
 
     /**
      * Getter for category.
+     *
+     * @return Category|null
      */
     public function getCategory(): ?Category
     {
@@ -184,6 +193,8 @@ class Post
 
     /**
      * Setter for category.
+     *
+     * @param Category|null $category
      *
      * @return $this
      */
@@ -195,9 +206,9 @@ class Post
     }
 
     /**
-     * Getter for Tags.
+     * Getter for tags.
      *
-     * @return Collection<int, Tag>
+     * @return Collection
      */
     public function getTags(): Collection
     {
@@ -206,6 +217,8 @@ class Post
 
     /**
      * Add a tag.
+     *
+     * @param Tag $tag
      *
      * @return $this
      */
@@ -221,6 +234,8 @@ class Post
     /**
      * Remove a tag.
      *
+     * @param Tag $tag
+     *
      * @return $this
      */
     public function removeTag(Tag $tag): self
@@ -231,7 +246,9 @@ class Post
     }
 
     /**
-     * Get author.
+     * Getter for author.
+     *
+     * @return User|null
      */
     public function getAuthor(): ?User
     {
@@ -239,7 +256,9 @@ class Post
     }
 
     /**
-     * Set author.
+     * Setter for author.
+     *
+     * @param User|null $author
      *
      * @return $this
      */
@@ -251,9 +270,9 @@ class Post
     }
 
     /**
-     * Get comments.
+     * Getter for comments.
      *
-     * @return Collection<int, Comment>
+     * @return Collection
      */
     public function getComments(): Collection
     {
@@ -262,6 +281,8 @@ class Post
 
     /**
      * Add comment.
+     *
+     * @param Comment $comment
      *
      * @return $this
      */
@@ -276,14 +297,15 @@ class Post
     }
 
     /**
-     * Remove comments.
+     * Remove comment.
+     *
+     * @param Comment $comment
      *
      * @return $this
      */
     public function removeComment(Comment $comment): self
     {
         if ($this->comments->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
             if ($comment->getPost() === $this) {
                 $comment->setPost(null);
             }
