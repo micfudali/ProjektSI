@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Category type.
  */
@@ -19,10 +20,11 @@ class CategoryType extends AbstractType
     /**
      * Builds the form.
      *
-     * @param FormBuilderInterface $builder
-     * @param array                $options
+     * This method is called for each type in the hierarchy starting from the
+     * top most type. Type extensions can further modify the form.
      *
-     * @return void
+     * @param FormBuilderInterface $builder The form builder
+     * @param array                $options Form options
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -40,9 +42,7 @@ class CategoryType extends AbstractType
     /**
      * Configures the options for this type.
      *
-     * @param OptionsResolver $resolver
-     *
-     * @return void
+     * @param OptionsResolver $resolver The resolver for the options
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -52,7 +52,10 @@ class CategoryType extends AbstractType
     /**
      * Returns the prefix of the template block name for this type.
      *
-     * @return string
+     * The block prefix defaults to the underscored short class name with
+     * the "Type" suffix removed (e.g. "UserProfileType" => "user_profile").
+     *
+     * @return string The prefix of the template block name
      */
     public function getBlockPrefix(): string
     {

@@ -18,8 +18,6 @@ class Comment
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -28,32 +26,24 @@ class Comment
 
     /**
      * Email.
-     *
-     * @var email|null
      */
     #[ORM\Column(type: 'string', length: 255)]
     private $email;
 
     /**
      * Nick.
-     *
-     * @var nick|null
      */
     #[ORM\Column(type: 'string', length: 64)]
     private $nick;
 
     /**
      * Contents.
-     *
-     * @var contents|null
      */
     #[ORM\Column(type: 'text')]
     private $contents;
 
     /**
      * Post Id.
-     *
-     * @var post
      */
     #[ORM\ManyToOne(targetEntity: Post::class, inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
@@ -62,7 +52,7 @@ class Comment
     /**
      * Getter for id.
      *
-     * @return int|null
+     * @return int|null id
      */
     public function getId(): ?int
     {
@@ -72,9 +62,9 @@ class Comment
     /**
      * Setter for email.
      *
-     * @param string $email
+     * @param string $email Email
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function setEmail(string $email): self
     {
@@ -86,7 +76,7 @@ class Comment
     /**
      * Getter for email.
      *
-     * @return string|null
+     * @return string|null Email
      */
     public function getEmail(): ?string
     {
@@ -96,7 +86,7 @@ class Comment
     /**
      * Getter for nick.
      *
-     * @return string|null
+     * @return string|null Nick
      */
     public function getNick(): ?string
     {
@@ -106,9 +96,9 @@ class Comment
     /**
      * Setter for nick.
      *
-     * @param string $nick
+     * @param string $nick Nick
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function setNick(string $nick): self
     {
@@ -120,7 +110,7 @@ class Comment
     /**
      * Getter for contents.
      *
-     * @return string|null
+     * @return string|null Contents
      */
     public function getContents(): ?string
     {
@@ -130,9 +120,9 @@ class Comment
     /**
      * Setter for contents.
      *
-     * @param string $contents
+     * @param string $contents Contents
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function setContents(string $contents): self
     {
@@ -144,7 +134,7 @@ class Comment
     /**
      * Getter for post
      *
-     * @return Post|null
+     * @return Post|null Post
      */
     public function getPost(): ?Post
     {
@@ -154,9 +144,9 @@ class Comment
     /**
      * Setter for post.
      *
-     * @param Post|null $post
+     * @param Post|null $post Post
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function setPost(?Post $post): self
     {

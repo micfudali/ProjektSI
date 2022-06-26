@@ -18,25 +18,31 @@ class PostService implements PostServiceInterface
 {
     /**
      * Post repository.
+     *
+     * @var PostRepository Post repository
      */
     private PostRepository $postRepository;
 
     /**
      * Category service.
+     *
+     * @var CategoryServiceInterface Category service interface
      */
     private CategoryServiceInterface $categoryService;
 
     /**
      * Paginator.
+     *
+     * @var PaginatorInterface Paginator
      */
     private PaginatorInterface $paginator;
 
     /**
      * Constructor.
      *
-     * @param PostRepository           $postRepository
-     * @param PaginatorInterface       $paginator
-     * @param CategoryServiceInterface $categoryService
+     * @param PostRepository           $postRepository  Post repository
+     * @param PaginatorInterface       $paginator       Paginator interface
+     * @param CategoryServiceInterface $categoryService Category service interface
      */
     public function __construct(PostRepository $postRepository, PaginatorInterface $paginator, CategoryServiceInterface $categoryService)
     {
@@ -48,10 +54,10 @@ class PostService implements PostServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int   $page
-     * @param array $filters
+     * @param int   $page    Page
+     * @param array $filters Filters
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Paginator Interface
      *
      * @throws NonUniqueResultException
      */
@@ -69,9 +75,7 @@ class PostService implements PostServiceInterface
     /**
      * Save entity.
      *
-     * @param Post $post
-     *
-     * @return void
+     * @param Post $post Post entity
      */
     public function save(Post $post): void
     {
@@ -85,9 +89,7 @@ class PostService implements PostServiceInterface
     /**
      * Delete entity.
      *
-     * @param Post $post
-     *
-     * @return void
+     * @param Post $post Post entity
      */
     public function delete(Post $post): void
     {
@@ -97,9 +99,9 @@ class PostService implements PostServiceInterface
     /**
      * Prepare filters for the posts list.
      *
-     * @param array $filters
+     * @param array $filters Filters
      *
-     * @return array
+     * @return array Returns array
      *
      * @throws NonUniqueResultException
      */

@@ -36,9 +36,9 @@ class CategoryService implements CategoryServiceInterface
     /**
      * Constructor.
      *
-     * @param CategoryRepository $categoryRepository
-     * @param PaginatorInterface $paginator
-     * @param PostRepository     $postRepository
+     * @param CategoryRepository $categoryRepository Category repository
+     * @param PaginatorInterface $paginator          Paginator interface
+     * @param PostRepository     $postRepository     Post repository
      */
     public function __construct(CategoryRepository $categoryRepository, PaginatorInterface $paginator, PostRepository $postRepository)
     {
@@ -86,9 +86,7 @@ class CategoryService implements CategoryServiceInterface
     /**
      * Can be deleted?
      *
-     * @param Category $category
-     *
-     * @return bool
+     * @param Category $category Category entity
      */
     public function canBeDeleted(Category $category): bool
     {

@@ -50,9 +50,9 @@ class Tag
     /**
      * Setter for title.
      *
-     * @param string $title
+     * @param string $title Title
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function setTitle(string $title): self
     {

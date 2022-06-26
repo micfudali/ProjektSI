@@ -17,9 +17,7 @@ class DeletePostType extends AbstractType
     /**
      * Configures the options for this type.
      *
-     * @param OptionsResolver $resolver
-     *
-     * @return void
+     * @param OptionsResolver $resolver The resolver for the options
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -29,7 +27,10 @@ class DeletePostType extends AbstractType
     /**
      * Returns the prefix of the template block name for this type.
      *
-     * @return string
+     * The block prefix defaults to the underscored short class name with
+     * the "Type" suffix removed (e.g. "UserProfileType" => "user_profile").
+     *
+     * @return string The prefix of the template block name
      */
     public function getBlockPrefix(): string
     {

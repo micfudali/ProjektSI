@@ -42,9 +42,9 @@ class CommentController extends AbstractController
     /**
      * Constructor.
      *
-     * @param CommentRepository       $commentRepository
-     * @param CommentServiceInterface $commentService
-     * @param TranslatorInterface     $translator
+     * @param CommentRepository       $commentRepository Comment repository
+     * @param CommentServiceInterface $commentService    Comment service
+     * @param TranslatorInterface     $translator        Translator
      */
     public function __construct(CommentRepository $commentRepository, CommentServiceInterface $commentService, TranslatorInterface $translator)
     {
@@ -56,10 +56,10 @@ class CommentController extends AbstractController
     /**
      * Create action.
      *
-     * @param Request $request
-     * @param Post    $post
+     * @param Request $request HTTP request
+     * @param Post    $post    Post
      *
-     * @return Response
+     * @return Response HTTP response
      */
     #[Route(
         '/create',

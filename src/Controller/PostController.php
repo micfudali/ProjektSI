@@ -28,7 +28,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class PostController extends AbstractController
 {
     /**
-     * Post service.
+     * Post service interface
      */
     private PostServiceInterface $postService;
 
@@ -38,16 +38,16 @@ class PostController extends AbstractController
     private CommentServiceInterface $commentService;
 
     /**
-     * Translator.
+     * Translator interface
      */
     private TranslatorInterface $translator;
 
     /**
      * Constructor.
      *
-     * @param PostServiceInterface    $postService
-     * @param TranslatorInterface     $translator
-     * @param CommentServiceInterface $commentService
+     * @param PostServiceInterface    $postService    Post service
+     * @param TranslatorInterface     $translator     Translator
+     * @param CommentServiceInterface $commentService Comment service
      */
     public function __construct(PostServiceInterface $postService, TranslatorInterface $translator, CommentServiceInterface $commentService)
     {
@@ -55,11 +55,11 @@ class PostController extends AbstractController
         $this->translator = $translator;
         $this->commentService = $commentService;
     }
-
+    
     /**
      * Index action.
      *
-     * @param Request $request HTTP Request
+     * @param Request $request HTTP request
      *
      * @return Response HTTP response
      */
@@ -98,9 +98,9 @@ class PostController extends AbstractController
     /**
      * Create action.
      *
-     * @param Request $request
+     * @param Request $request HTTP request
      *
-     * @return Response
+     * @return Response HTTP response
      */
     #[Route('/create', name: 'post_create', methods: 'GET|POST')]
     #[IsGranted('ROLE_ADMIN')]
@@ -212,10 +212,10 @@ class PostController extends AbstractController
     /**
      * Comment action.
      *
-     * @param Request $request
-     * @param Post    $post
+     * @param Request $request HTTP request
+     * @param Post    $post    Post entity
      *
-     * @return Response
+     * @return Response HTTP response
      */
     #[Route('/{id}/comment', name: 'post_comment', methods: 'GET|POST')]
     public function comment(Request $request, Post $post): Response
@@ -249,7 +249,7 @@ class PostController extends AbstractController
      *
      * @return array<string, int> Array of filters
      *
-     * @psalm-return array{category_id: int, tag_id: int, status_id: int}
+     * @psalm-return array{category_id: int, tag_id: int, status_id: int} Returns array
      */
     private function getFilters(Request $request): array
     {

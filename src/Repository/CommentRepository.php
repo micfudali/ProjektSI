@@ -24,7 +24,7 @@ class CommentRepository extends ServiceEntityRepository
     /**
      * Constructor.
      *
-     * @param ManagerRegistry $registry
+     * @param ManagerRegistry $registry Registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -34,10 +34,8 @@ class CommentRepository extends ServiceEntityRepository
     /**
      * Add.
      *
-     * @param Comment $entity
-     * @param bool    $flush
-     *
-     * @return void
+     * @param Comment $entity Comment entity
+     * @param bool    $flush  Bool flush
      */
     public function add(Comment $entity, bool $flush = false): void
     {
@@ -51,10 +49,8 @@ class CommentRepository extends ServiceEntityRepository
     /**
      * Remove.
      *
-     * @param Comment $entity
-     * @param bool    $flush
-     *
-     * @return void
+     * @param Comment $entity Comment entity
+     * @param bool    $flush  Bool flush
      */
     public function remove(Comment $entity, bool $flush = false): void
     {
@@ -65,43 +61,43 @@ class CommentRepository extends ServiceEntityRepository
         }
     }
 
-    /**
-     * Find by example field.
-     *
-     * @param $value
-     *
-     * @return array
-     */
-    public function findByExampleField($value): array
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
+//    /**
+//     * Find by example field.
+//     *
+//     * @param $value Example value
+//     *
+//     * @return array Array
+//     */
+//    public function findByExampleField($value): array
+//    {
+//        return $this->createQueryBuilder('c')
+//            ->andWhere('c.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->orderBy('c.id', 'ASC')
+//            ->setMaxResults(10)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//
 
-    /**
-     * Find by some field.
-     *
-     * @param $value
-     *
-     * @return Comment|null
-     *
-     * @throws NonUniqueResultException
-     */
-    public function findOneBySomeField($value): ?Comment
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
+//    /**
+//     * Find by some field.
+//     *
+//     * @param $value Example value
+//     *
+//     * @return Comment|null
+//     *
+//     * @throws NonUniqueResultException
+//     */
+//    public function findOneBySomeField($value): ?Comment
+//    {
+//        return $this->createQueryBuilder('c')
+//            ->andWhere('c.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->getQuery()
+//            ->getOneOrNullResult()
+//        ;
+//    }
 
     /**
      * Save entity.

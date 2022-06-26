@@ -22,8 +22,6 @@ class Post
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -32,32 +30,24 @@ class Post
 
     /**
      * Title.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 50)]
     private $title;
 
     /**
      * Contents.
-     *
-     * @var text|null
      */
     #[ORM\Column(type: 'text')]
     private $contents;
 
     /**
      * Created at.
-     *
-     * @var DateTimeImmutable|null
      */
     #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
 
     /**
      * Category.
-     *
-     * @var Category|null
      */
     #[ORM\ManyToOne(targetEntity: Category::class)]
     #[ORM\JoinColumn(nullable: false)]
@@ -65,16 +55,12 @@ class Post
 
     /**
      * Tags.
-     *
-     * @var ArrayCollection
      */
     #[ORM\ManyToMany(targetEntity: Tag::class)]
     private $tags;
 
     /**
      * Author.
-     *
-     * @var User|null
      */
     #[ORM\ManyToOne(targetEntity: User::class, fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
@@ -84,8 +70,6 @@ class Post
 
     /**
      * Comments.
-     *
-     * @var ArrayCollection
      */
     #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comment::class, cascade: ['remove'])]
     private $comments;
@@ -122,9 +106,9 @@ class Post
     /**
      * Setter for title.
      *
-     * @param string $title
+     * @param string $title Title
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function setTitle(string $title): self
     {
@@ -136,7 +120,7 @@ class Post
     /**
      * Getter for contents.
      *
-     * @return string|null
+     * @return string|null Contents
      */
     public function getContents(): ?string
     {
@@ -146,9 +130,9 @@ class Post
     /**
      * Setter for contents.
      *
-     * @param string $contents
+     * @param string $contents Contents
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function setContents(string $contents): self
     {
@@ -160,7 +144,7 @@ class Post
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null
+     * @return DateTimeImmutable|null Created at
      */
     public function getCreatedAt(): ?DateTimeImmutable
     {
@@ -170,9 +154,9 @@ class Post
     /**
      * Setter for created at.
      *
-     * @param DateTimeImmutable $createdAt
+     * @param DateTimeImmutable $createdAt Created at
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function setCreatedAt(DateTimeImmutable $createdAt): self
     {
@@ -184,7 +168,7 @@ class Post
     /**
      * Getter for category.
      *
-     * @return Category|null
+     * @return Category|null Category
      */
     public function getCategory(): ?Category
     {
@@ -194,9 +178,9 @@ class Post
     /**
      * Setter for category.
      *
-     * @param Category|null $category
+     * @param Category|null $category Category
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function setCategory(?Category $category): self
     {
@@ -208,7 +192,7 @@ class Post
     /**
      * Getter for tags.
      *
-     * @return Collection
+     * @return Collection Tags
      */
     public function getTags(): Collection
     {
@@ -218,9 +202,9 @@ class Post
     /**
      * Add a tag.
      *
-     * @param Tag $tag
+     * @param Tag $tag Tag
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function addTag(Tag $tag): self
     {
@@ -234,9 +218,9 @@ class Post
     /**
      * Remove a tag.
      *
-     * @param Tag $tag
+     * @param Tag $tag Tag
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function removeTag(Tag $tag): self
     {
@@ -248,7 +232,7 @@ class Post
     /**
      * Getter for author.
      *
-     * @return User|null
+     * @return User|null Author
      */
     public function getAuthor(): ?User
     {
@@ -258,9 +242,9 @@ class Post
     /**
      * Setter for author.
      *
-     * @param User|null $author
+     * @param User|null $author Author
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function setAuthor(?User $author): self
     {
@@ -272,7 +256,7 @@ class Post
     /**
      * Getter for comments.
      *
-     * @return Collection
+     * @return Collection Comments
      */
     public function getComments(): Collection
     {
@@ -282,9 +266,9 @@ class Post
     /**
      * Add comment.
      *
-     * @param Comment $comment
+     * @param Comment $comment Comment
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function addComment(Comment $comment): self
     {
@@ -299,9 +283,9 @@ class Post
     /**
      * Remove comment.
      *
-     * @param Comment $comment
+     * @param Comment $comment Comment
      *
-     * @return $this
+     * @return $this Returns this
      */
     public function removeComment(Comment $comment): self
     {

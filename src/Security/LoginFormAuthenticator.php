@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Login form authenticator.
  */
@@ -29,14 +30,14 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Login route.
      *
-     * @const string
+     * @const string Login route
      */
     public const LOGIN_ROUTE = 'app_login';
 
     /**
      * Default route.
      *
-     * @const string
+     * @const string Post index
      */
     public const DEFAULT_ROUTE = 'post_index';
 
@@ -48,7 +49,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Url generator.
      *
-     * @param UrlGeneratorInterface $urlGenerator
+     * @param UrlGeneratorInterface $urlGenerator Url generator
      */
     public function __construct(UrlGeneratorInterface $urlGenerator)
     {
@@ -73,9 +74,9 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Create a passport for the current request.
      *
-     * @param Request $request
+     * @param Request $request Request
      *
-     * @return Passport
+     * @return Passport Passport
      */
     public function authenticate(Request $request): Passport
     {

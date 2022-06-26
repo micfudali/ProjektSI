@@ -16,10 +16,10 @@ interface PostServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int   $page
-     * @param array $filters
+     * @param int   $page    Page number
+     * @param array $filters Filters
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Pagination interface
      */
     public function getPaginatedList(int $page, array $filters = []): PaginationInterface;
 
